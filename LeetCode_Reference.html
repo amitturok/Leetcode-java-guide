@@ -148,6 +148,95 @@ hr.sec-div{border:none;height:2px;background:linear-gradient(90deg,transparent,r
 .cheat-card h4{font-size:0.78rem;font-weight:700;color:var(--accent-purple);margin-bottom:6px;}
 .cheat-card p{font-size:0.74rem;line-height:1.6;color:var(--text-secondary);}
 .cheat-card code{font-family:'JetBrains Mono',monospace;font-size:0.73rem;background:rgba(0,0,0,0.04);padding:1px 4px;border-radius:3px;}
+
+/* ===== DARK MODE ===== */
+[data-theme="dark"]{
+  --content-bg:#13131f;--card-bg:#1e1e2e;
+  --text-primary:#e0e0f0;--text-secondary:#a0a0c0;--text-muted:#6868a0;
+  --shadow:0 4px 20px rgba(0,0,0,0.35);--shadow-hover:0 8px 30px rgba(0,0,0,0.55);
+}
+[data-theme="dark"] body{background:var(--content-bg);}
+[data-theme="dark"] .top-bar{background:#1e1e2e;box-shadow:0 2px 10px rgba(0,0,0,0.4);}
+[data-theme="dark"] .card{background:var(--card-bg);border-color:rgba(255,255,255,0.06);}
+[data-theme="dark"] .card-header:hover{background:rgba(255,255,255,0.03);}
+[data-theme="dark"] .card-title{color:var(--text-primary);}
+[data-theme="dark"] .card-subtitle{color:var(--text-muted);}
+[data-theme="dark"] .desc-box{background:rgba(108,92,231,0.09);color:var(--text-primary);}
+[data-theme="dark"] .desc-box.teal{background:rgba(0,184,148,0.08);}
+[data-theme="dark"] .desc-box.orange{background:rgba(225,112,85,0.08);}
+[data-theme="dark"] .desc-box.blue{background:rgba(9,132,227,0.08);}
+[data-theme="dark"] .desc-box.gold{background:rgba(253,203,110,0.07);}
+[data-theme="dark"] .desc-box.green{background:rgba(0,184,148,0.08);}
+[data-theme="dark"] .tip-box{background:rgba(253,203,110,0.07);border-color:rgba(253,203,110,0.2);color:var(--text-primary);}
+[data-theme="dark"] .warning-box{background:rgba(214,48,49,0.08);border-color:rgba(214,48,49,0.25);color:var(--text-primary);}
+[data-theme="dark"] .info-box{background:rgba(9,132,227,0.08);border-color:rgba(9,132,227,0.25);color:var(--text-primary);}
+[data-theme="dark"] .good-box{background:rgba(0,184,148,0.08);border-color:rgba(0,184,148,0.25);color:var(--text-primary);}
+[data-theme="dark"] .complexity-table td{border-bottom-color:rgba(255,255,255,0.05);color:var(--text-primary);}
+[data-theme="dark"] .complexity-table tr:nth-child(even){background:rgba(255,255,255,0.03);}
+[data-theme="dark"] .complexity-table tr:hover{background:rgba(108,92,231,0.09);}
+[data-theme="dark"] .decision-table td{border-bottom-color:rgba(255,255,255,0.05);color:var(--text-primary);}
+[data-theme="dark"] .decision-table tr:nth-child(even){background:rgba(255,255,255,0.03);}
+[data-theme="dark"] .decision-table th{background:linear-gradient(135deg,#1a1a3e,#0f0f23);}
+[data-theme="dark"] .step-list li{border-bottom-color:rgba(255,255,255,0.05);color:var(--text-primary);}
+[data-theme="dark"] code.inline{background:rgba(108,92,231,0.2);color:#a29bfe;}
+[data-theme="dark"] .cheat-card{background:linear-gradient(135deg,rgba(108,92,231,0.1),rgba(108,92,231,0.04));border-color:rgba(108,92,231,0.2);}
+[data-theme="dark"] .cheat-card p{color:var(--text-secondary);}
+[data-theme="dark"] .cheat-card code{background:rgba(255,255,255,0.06);}
+[data-theme="dark"] .lc-tag{background:rgba(108,92,231,0.15);border-color:rgba(108,92,231,0.3);}
+[data-theme="dark"] .pill{background:rgba(0,184,148,0.1);border-color:rgba(0,184,148,0.25);}
+[data-theme="dark"] hr.sec-div{background:linear-gradient(90deg,transparent,rgba(108,92,231,0.3),transparent);}
+[data-theme="dark"] .card-section-title::after{background:rgba(108,92,231,0.2);}
+
+/* ===== DARK MODE TOGGLE ===== */
+#theme-toggle{background:none;border:1px solid rgba(108,92,231,0.4);border-radius:20px;padding:5px 13px;color:var(--text-primary);font-family:'Heebo',sans-serif;font-size:0.75rem;cursor:pointer;display:flex;align-items:center;gap:5px;transition:var(--transition);white-space:nowrap;flex-shrink:0;}
+#theme-toggle:hover{background:rgba(108,92,231,0.12);border-color:var(--accent-purple);}
+
+/* ===== HAMBURGER (mobile only) ===== */
+#hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px;flex-shrink:0;}
+#hamburger span{display:block;width:22px;height:2px;background:var(--text-primary);border-radius:2px;transition:var(--transition);}
+#hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+#hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+#hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+
+/* ===== SIDEBAR OVERLAY (mobile) ===== */
+#sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:998;backdrop-filter:blur(2px);}
+#sidebar-overlay.visible{display:block;}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width:900px){
+  #sidebar{transform:translateX(105%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);z-index:1000;}
+  #sidebar.mobile-open{transform:translateX(0);}
+  #main-content{margin-right:0 !important;}
+  #hamburger{display:flex;}
+  .top-bar{padding:10px 14px;gap:8px;}
+  .top-bar h2{font-size:0.83rem;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .top-bar-stats{gap:4px;}
+  .stat-badge{font-size:0.6rem;padding:2px 7px;}
+  .content-section{padding:16px 14px;}
+  .section-header{padding:16px 18px;gap:10px;}
+  .section-header-text h2{font-size:1.15rem;}
+  .section-header-text p{font-size:0.76rem;}
+  .card-header{padding:12px 14px;}
+  .card-body{padding:0 14px 16px;}
+  .code-wrapper pre{font-size:0.72rem !important;max-height:320px;}
+  .complexity-table{font-size:0.72rem;}
+  .complexity-table th,.complexity-table td{padding:5px 7px;}
+  .decision-table{font-size:0.72rem;}
+  .decision-table th,.decision-table td{padding:5px 8px;}
+  .cheat-grid{grid-template-columns:1fr 1fr;}
+  #back-to-top{bottom:14px;left:14px;width:38px;height:38px;font-size:0.9rem;}
+}
+@media (max-width:500px){
+  .top-bar-stats{display:none;}
+  .section-count{display:none;}
+  .card-title{font-size:0.88rem;}
+  .cheat-grid{grid-template-columns:1fr;}
+  .complexity-table,.decision-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .card-body{padding:0 10px 14px;}
+  .content-section{padding:10px;}
+  .theme-label{display:none;}
+  #theme-toggle{padding:5px 9px;}
+}
 </style>
 </head>
 <body>
@@ -210,6 +299,9 @@ hr.sec-div{border:none;height:2px;background:linear-gradient(90deg,transparent,r
         <div class="nav-sub-item" onclick="goTo('ops-arrays')">📋 Arrays Utils</div>
         <div class="nav-sub-item" onclick="goTo('ops-convert')">🔄 Type Conversions</div>
         <div class="nav-sub-item" onclick="goTo('ops-bits')">💾 Bit Operations</div>
+        <div class="nav-sub-item" onclick="goTo('ops-oop')">🏗️ OOP Basics</div>
+        <div class="nav-sub-item" onclick="goTo('ops-streams')">🌊 Streams API</div>
+        <div class="nav-sub-item" onclick="goTo('ops-threads')">🔀 Multithreading</div>
       </div>
     </div>
 
@@ -273,6 +365,8 @@ hr.sec-div{border:none;height:2px;background:linear-gradient(90deg,transparent,r
         <div class="nav-sub-item" onclick="goTo('tips-java')">☕ Java טריקים</div>
         <div class="nav-sub-item" onclick="goTo('tips-mistakes')">❌ טעויות נפוצות</div>
         <div class="nav-sub-item" onclick="goTo('tips-cheatsheet')">📋 Cheat Sheet</div>
+        <div class="nav-sub-item" onclick="goTo('tips-bigo')">📊 Big-O Cheat Sheet</div>
+        <div class="nav-sub-item" onclick="goTo('tips-sysdesign')">🏗️ System Design</div>
       </div>
     </div>
 
@@ -302,16 +396,23 @@ hr.sec-div{border:none;height:2px;background:linear-gradient(90deg,transparent,r
 
   </div>
 </nav>
+<div id="sidebar-overlay" onclick="toggleSidebar()"></div>
 
 <!-- MAIN CONTENT -->
 <main id="main-content">
   <div class="top-bar">
+    <button id="hamburger" onclick="toggleSidebar()" aria-label="תפריט ניווט">
+      <span></span><span></span><span></span>
+    </button>
     <h2>📚 LeetCode Reference Book — Java | עברית</h2>
     <div class="top-bar-stats">
       <span class="stat-badge">14 מבני נתונים</span>
       <span class="stat-badge">25 דפוסים</span>
       <span class="stat-badge">8 אלגוריתמים</span>
     </div>
+    <button id="theme-toggle" onclick="toggleTheme()" title="החלף מצב תצוגה">
+      <span id="theme-icon">🌙</span><span class="theme-label">Dark</span>
+    </button>
   </div>
 
   <!-- ========== SECTION 1: DATA STRUCTURES ========== -->
@@ -2299,6 +2400,376 @@ Integer.lowestOneBit(n)    // lowest set bit mask
 Integer.numberOfLeadingZeros(n)   // leading 0s
 Integer.numberOfTrailingZeros(n)  // trailing 0s
 Integer.reverse(n)                // reverse all bits</code></pre></div>
+      </div>
+    </div>
+
+
+    <!-- OOP BASICS -->
+    <div class="card" id="ops-oop">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-header-left"><span class="card-icon">🏗️</span>
+          <div><div class="card-title">OOP Basics — רלוונטי לראיונות</div>
+          <div class="card-subtitle">Inheritance, Polymorphism, Interface vs Abstract, Design Patterns</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="card-badge badge-ops">Java</span><span class="card-toggle">▼</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="desc-box blue">עקרונות OOP שחוזרים בראיונות: ההבדל בין interface לabstract class, polymorphism, ו-design patterns בסיסיים. ממוקד לSWE interviews בלבד.</div>
+        <div class="card-section-title">🔑 4 עקרונות OOP</div>
+        <table class="decision-table">
+          <tr><th>עיקרון</th><th>הסבר</th><th>Java keyword</th></tr>
+          <tr><td><strong>Encapsulation</strong></td><td>הסתרת מידע, חשיפה דרך public methods</td><td><code class="inline">private</code>, getters/setters</td></tr>
+          <tr><td><strong>Inheritance</strong></td><td>קלאס ילד מקבל properties של קלאס אב</td><td><code class="inline">extends</code></td></tr>
+          <tr><td><strong>Polymorphism</strong></td><td>אותה פונקציה, התנהגות שונה לפי סוג האובייקט</td><td><code class="inline">@Override</code>, <code class="inline">instanceof</code></td></tr>
+          <tr><td><strong>Abstraction</strong></td><td>הסתרת implementation, חשיפת contract בלבד</td><td><code class="inline">abstract</code>, <code class="inline">interface</code></td></tr>
+        </table>
+        <div class="card-section-title">❓ Interface vs Abstract Class — שאלת ראיון קלאסית</div>
+        <table class="decision-table">
+          <tr><th></th><th>Interface</th><th>Abstract Class</th></tr>
+          <tr><td><strong>ירושה</strong></td><td><code class="inline">implements</code> (multiple!)</td><td><code class="inline">extends</code> (רק אחד)</td></tr>
+          <tr><td><strong>Fields</strong></td><td>רק <code class="inline">static final</code></td><td>כל סוג fields</td></tr>
+          <tr><td><strong>Constructor</strong></td><td>אין</td><td>יש (לא instantiable)</td></tr>
+          <tr><td><strong>Methods</strong></td><td>abstract + default + static</td><td>abstract + concrete</td></tr>
+          <tr><td><strong>מתי?</strong></td><td>הגדרת contract, multiple types</td><td>shared base behavior + specialization</td></tr>
+        </table>
+        <div class="card-section-title">☕ Java Code Examples</div>
+        <div class="code-wrapper"><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+<pre><code class="language-java">// ===== INTERFACE =====
+interface Shape {
+    double area();                                           // implicitly abstract
+    default String describe() { return "I am a shape"; }   // default method (Java 8+)
+    static Shape ofCircle(double r) { return new Circle(r); } // static factory
+}
+
+// ===== ABSTRACT CLASS =====
+abstract class Animal {
+    String name;
+    Animal(String name) { this.name = name; }  // constructor allowed
+    abstract void sound();                      // subclass MUST override
+    void breathe() { System.out.println("breathing"); } // concrete - inherited as-is
+}
+
+// ===== INHERITANCE =====
+class Dog extends Animal {
+    Dog(String name) { super(name); }
+    @Override
+    void sound() { System.out.println(name + ": Woof!"); }
+}
+
+// ===== POLYMORPHISM =====
+Animal a = new Dog("Rex");  // reference = Animal, actual = Dog
+a.sound();                  // calls Dog.sound() — runtime dispatch!
+
+if (a instanceof Dog d) {   // Java 16+ pattern matching (no separate cast needed)
+    d.sound();
+}
+
+// ===== MULTIPLE INTERFACES =====
+class Circle implements Shape, Comparable&lt;Circle&gt; {
+    double radius;
+    Circle(double r) { this.radius = r; }
+    @Override public double area() { return Math.PI * radius * radius; }
+    @Override public int compareTo(Circle o) { return Double.compare(this.radius, o.radius); }
+}
+
+// ===== DESIGN PATTERNS (LeetCode relevant) =====
+
+// Singleton — one instance ever
+class Singleton {
+    private static volatile Singleton instance;
+    private Singleton() {}
+    public static Singleton getInstance() {
+        if (instance == null) synchronized(Singleton.class) {
+            if (instance == null) instance = new Singleton(); // double-checked locking
+        }
+        return instance;
+    }
+}
+
+// Factory — create objects by type
+interface Logger { void log(String msg); }
+class ConsoleLogger implements Logger { public void log(String m) { System.out.println(m); }}
+class Logger Factory {
+    static Logger create(String type) {
+        return switch(type) { case "console" -> new ConsoleLogger(); default -> throw new IllegalArgumentException(); };
+    }
+}
+
+// Observer — notify listeners
+interface Observer { void update(int val); }
+class EventSource {
+    List&lt;Observer&gt; listeners = new ArrayList&lt;&gt;();
+    void subscribe(Observer o) { listeners.add(o); }
+    void emit(int val) { listeners.forEach(o -> o.update(val)); }
+}
+
+// Strategy — swap algorithms at runtime
+interface SortStrategy { void sort(int[] arr); }
+class BubbleSort implements SortStrategy { public void sort(int[] a) { /* ... */ }}
+class Sorter {
+    SortStrategy strategy;
+    Sorter(SortStrategy s) { this.strategy = s; }
+    void sort(int[] a) { strategy.sort(a); }
+}</code></pre></div>
+        <div class="tip-box">בראיון: interface = "מה" (contract), abstract class = "איך חלקית" (partial impl). Multiple interfaces → composition over inheritance. ב-LeetCode design questions תמיד עדיף interfaces.</div>
+      </div>
+    </div>
+
+    <!-- STREAMS API -->
+    <div class="card" id="ops-streams">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-header-left"><span class="card-icon">🌊</span>
+          <div><div class="card-title">Streams API — Java 8+</div>
+          <div class="card-subtitle">filter, map, collect, reduce, groupingBy, flatMap</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="card-badge badge-ops">Java</span><span class="card-toggle">▼</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="desc-box blue">Streams API מאפשר עיבוד נתונים פונקציונלי — פילטור, מיפוי, צבירה. ב-LeetCode לא תמיד הכי יעיל, אבל מראה בקיאות ב-Java מודרנית. Lazy evaluation — intermediate ops לא רצות עד terminal op.</div>
+        <div class="code-wrapper"><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+<pre><code class="language-java">import java.util.*;
+import java.util.stream.*;
+
+List&lt;Integer&gt; nums = Arrays.asList(3, 1, 4, 1, 5, 9, 2, 6, 5);
+
+// ===== BASIC PIPELINE: source → intermediate ops → terminal op =====
+List&lt;Integer&gt; evens = nums.stream()
+    .filter(n -&gt; n % 2 == 0)
+    .collect(Collectors.toList());                          // [4, 2, 6]
+
+List&lt;String&gt; strs = nums.stream()
+    .map(n -&gt; "num:" + n)
+    .collect(Collectors.toList());
+
+List&lt;Integer&gt; top3Distinct = nums.stream()
+    .distinct()
+    .sorted(Comparator.reverseOrder())
+    .limit(3)
+    .collect(Collectors.toList());                          // [9, 6, 5]
+
+// ===== REDUCE =====
+int sum      = nums.stream().reduce(0, Integer::sum);
+int product  = nums.stream().reduce(1, (a, b) -&gt; a * b);
+Optional&lt;Integer&gt; max = nums.stream().reduce(Integer::max); // Optional — might be empty!
+int maxVal   = nums.stream().mapToInt(x -&gt; x).max().getAsInt();
+
+// ===== COLLECTORS =====
+Set&lt;Integer&gt; unique = nums.stream().collect(Collectors.toSet());
+
+// joining (for Strings)
+String joined = Stream.of("a","b","c")
+    .collect(Collectors.joining(", ", "[", "]"));           // [a, b, c]
+
+// groupingBy — frequency map
+Map&lt;Integer, Long&gt; freq = nums.stream()
+    .collect(Collectors.groupingBy(n -&gt; n, Collectors.counting()));
+
+// groupingBy — partition by condition
+Map&lt;Integer, List&lt;Integer&gt;&gt; byMod3 = nums.stream()
+    .collect(Collectors.groupingBy(n -&gt; n % 3));
+
+// toMap
+Map&lt;Integer, Integer&gt; squareMap = nums.stream().distinct()
+    .collect(Collectors.toMap(n -&gt; n, n -&gt; n * n));
+
+// ===== MATCH / FIND =====
+boolean anyEven  = nums.stream().anyMatch(n -&gt; n % 2 == 0);
+boolean allPos   = nums.stream().allMatch(n -&gt; n &gt; 0);
+boolean noneNeg  = nums.stream().noneMatch(n -&gt; n &lt; 0);
+Optional&lt;Integer&gt; first = nums.stream().filter(n -&gt; n &gt; 5).findFirst();
+long count = nums.stream().filter(n -&gt; n &gt; 3).count();
+
+// ===== IntStream (primitives — more efficient) =====
+int[] arr = {1, 2, 3, 4, 5};
+int arrSum  = IntStream.of(arr).sum();
+int arrMax  = IntStream.of(arr).max().getAsInt();
+double avg  = IntStream.of(arr).average().getAsDouble();
+
+IntStream.range(0, 5).forEach(i -&gt; { /* 0,1,2,3,4 */ });
+IntStream.rangeClosed(1, 5).sum();  // 15
+
+// ===== TYPE CONVERSIONS =====
+// List&lt;Integer&gt; → int[]
+int[] prim = nums.stream().mapToInt(Integer::intValue).toArray();
+// int[] → List&lt;Integer&gt;
+List&lt;Integer&gt; boxed = IntStream.of(arr).boxed().collect(Collectors.toList());
+// String → char stream
+"hello".chars().mapToObj(c -&gt; (char)c).forEach(c -&gt; { /* each char */ });
+
+// ===== FLATMAP — flatten nested =====
+List&lt;List&lt;Integer&gt;&gt; nested = Arrays.asList(Arrays.asList(1,2), Arrays.asList(3,4));
+List&lt;Integer&gt; flat = nested.stream()
+    .flatMap(Collection::stream)
+    .collect(Collectors.toList());  // [1, 2, 3, 4]
+
+int[][] matrix = {{1,2},{3,4},{5,6}};
+List&lt;Integer&gt; flatMat = Arrays.stream(matrix)
+    .flatMapToInt(Arrays::stream)
+    .boxed()
+    .collect(Collectors.toList());  // [1,2,3,4,5,6]
+
+// ===== COMMON LC PATTERNS =====
+// Top-K by frequency:
+List&lt;Integer&gt; topK = freq.entrySet().stream()
+    .sorted(Map.Entry.&lt;Integer,Long&gt;comparingByValue().reversed())
+    .limit(2)
+    .map(Map.Entry::getKey)
+    .collect(Collectors.toList());
+
+// Char frequency map from String:
+Map&lt;Character, Long&gt; charFreq = "aabbcc".chars()
+    .mapToObj(c -&gt; (char)c)
+    .collect(Collectors.groupingBy(c -&gt; c, Collectors.counting()));</code></pre></div>
+        <div class="warning-box">Stream לא ניתן לreuse לאחר terminal operation — תיזרק exception. בLeetCode, loop רגיל מהיר יותר; Streams לקוד קצר ובהיר. <code class="inline">Optional.get()</code> בלי בדיקה → NoSuchElementException.</div>
+      </div>
+    </div>
+
+    <!-- MULTITHREADING -->
+    <div class="card" id="ops-threads">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-header-left"><span class="card-icon">🔀</span>
+          <div><div class="card-title">Multithreading & Concurrency — Interview Scope</div>
+          <div class="card-subtitle">synchronized, volatile, AtomicInteger, ExecutorService, ConcurrentHashMap</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="card-badge badge-ops">Java</span><span class="card-toggle">▼</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="desc-box blue">Concurrency מופיע ב-LeetCode כdesign questions (LRU Cache thread-safe, rate limiter, etc.). תדע: synchronized, volatile, Atomic classes, ExecutorService, ו-ConcurrentHashMap.</div>
+        <div class="code-wrapper"><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+<pre><code class="language-java">import java.util.concurrent.*;
+import java.util.concurrent.atomic.*;
+import java.util.concurrent.locks.*;
+
+// ===== CREATING THREADS =====
+// Option 1: Runnable lambda (preferred for simple tasks)
+Thread t = new Thread(() -&gt; System.out.println("hello from thread"));
+t.start();
+t.join(); // main thread waits for t to finish (throws InterruptedException)
+
+// Option 2: extend Thread (rarely needed)
+class MyTask extends Thread {
+    public void run() { System.out.println(getName()); }
+}
+
+// ===== SYNCHRONIZED =====
+class Counter {
+    private int count = 0;
+
+    public synchronized void increment() { count++; } // method-level lock (on 'this')
+
+    public void decrement() {
+        synchronized(this) { count--; }  // block-level lock (finer granularity)
+    }
+
+    public synchronized int get() { return count; }
+}
+// NOTE: count++ is NOT atomic! It's read-modify-write (3 ops). Always sync or use Atomic.
+
+// ===== VOLATILE =====
+// Guarantees VISIBILITY (all threads see latest value) but NOT atomicity
+class StopFlag {
+    private volatile boolean running = true;  // without volatile, threads may cache old value
+    public void stop() { running = false; }
+    public void run() { while (running) { /* work */ } }
+}
+// volatile int counter; counter++; // STILL NOT THREAD-SAFE! Use AtomicInteger.
+
+// ===== ATOMIC CLASSES (lock-free, CAS-based) =====
+AtomicInteger ai = new AtomicInteger(0);
+int newVal = ai.incrementAndGet();       // ++ai, returns new value
+int oldVal = ai.getAndAdd(5);            // ai += 5, returns old value
+boolean swapped = ai.compareAndSet(5, 10); // if val==5, set 10; returns true/false (CAS)
+
+AtomicLong   al = new AtomicLong(0L);
+AtomicBoolean ab = new AtomicBoolean(false);
+
+// ===== EXECUTOR SERVICE =====
+ExecutorService pool = Executors.newFixedThreadPool(4); // 4 worker threads
+
+// Runnable: fire and forget
+pool.submit(() -&gt; System.out.println("task"));
+
+// Callable: returns a result
+Future&lt;Integer&gt; future = pool.submit(() -&gt; {
+    Thread.sleep(100);
+    return 42;
+});
+int result = future.get();         // blocks until done; throws checked exceptions
+future.get(1, TimeUnit.SECONDS);   // timeout variant
+
+pool.shutdown();                   // graceful: finish queued tasks, no new
+pool.shutdownNow();                // forceful: interrupt running tasks
+pool.awaitTermination(5, TimeUnit.SECONDS); // wait for full shutdown
+
+// ===== CONCURRENT COLLECTIONS =====
+ConcurrentHashMap&lt;String, Integer&gt; cmap = new ConcurrentHashMap&lt;&gt;();
+cmap.put("a", 1);
+cmap.getOrDefault("b", 0);
+cmap.computeIfAbsent("c", k -&gt; 0);
+cmap.merge("a", 1, Integer::sum); // thread-safe frequency count!
+
+CopyOnWriteArrayList&lt;Integer&gt; cowList = new CopyOnWriteArrayList&lt;&gt;(); // safe reads, slow writes
+BlockingQueue&lt;Integer&gt; bq = new LinkedBlockingQueue&lt;&gt;(100); // bounded producer-consumer
+bq.put(1);     // blocks if full
+bq.take();     // blocks if empty
+bq.offer(1, 1, TimeUnit.SECONDS); // offer with timeout
+
+// ===== REENTRANT LOCK (more flexible than synchronized) =====
+Lock lock = new ReentrantLock();
+lock.lock();
+try {
+    // critical section
+} finally {
+    lock.unlock(); // ALWAYS in finally! Or you'll deadlock on exception.
+}
+lock.tryLock();                    // returns false immediately if locked
+lock.tryLock(500, TimeUnit.MILLISECONDS); // wait up to 500ms
+
+// ===== SEMAPHORE (limit concurrent access) =====
+Semaphore sem = new Semaphore(3); // 3 permits — at most 3 threads at a time
+sem.acquire();
+try { /* max 3 threads here */ } finally { sem.release(); }
+
+// ===== COUNTDOWNLATCH (wait for N events) =====
+CountDownLatch latch = new CountDownLatch(3);
+// In 3 threads: latch.countDown();
+latch.await(); // main waits until count reaches 0
+
+// ===== THREAD-SAFE SINGLETON =====
+class SafeSingleton {
+    private static volatile SafeSingleton instance;
+    private SafeSingleton() {}
+    public static SafeSingleton getInstance() {
+        if (instance == null) {                // first check: no lock
+            synchronized(SafeSingleton.class) {
+                if (instance == null) {        // second check: with lock
+                    instance = new SafeSingleton();
+                }
+            }
+        }
+        return instance;
+    }
+}</code></pre></div>
+        <div class="card-section-title">⚡ מתי להשתמש במה</div>
+        <table class="decision-table">
+          <tr><th>בעיה</th><th>פתרון</th></tr>
+          <tr><td>Shared state — מתודה שלמה</td><td><code class="inline">synchronized</code> method</td></tr>
+          <tr><td>Counter thread-safe</td><td><code class="inline">AtomicInteger</code></td></tr>
+          <tr><td>Visibility בין threads</td><td><code class="inline">volatile</code></td></tr>
+          <tr><td>Pool of threads</td><td><code class="inline">ExecutorService</code></td></tr>
+          <tr><td>Thread-safe Map</td><td><code class="inline">ConcurrentHashMap</code></td></tr>
+          <tr><td>Producer-Consumer</td><td><code class="inline">BlockingQueue</code></td></tr>
+          <tr><td>Limit concurrent access to N</td><td><code class="inline">Semaphore</code></td></tr>
+          <tr><td>Wait for N threads to finish</td><td><code class="inline">CountDownLatch</code></td></tr>
+          <tr><td>tryLock / timeout locking</td><td><code class="inline">ReentrantLock</code></td></tr>
+        </table>
+        <div class="warning-box"><strong>synchronized vs volatile:</strong> <code class="inline">volatile</code> מבטיח visibility בלבד — לא atomicity. <code class="inline">count++</code> הם 3 פעולות (read-modify-write). אז <code class="inline">volatile int count; count++</code> = NOT thread-safe. השתמש ב-<code class="inline">AtomicInteger</code> או <code class="inline">synchronized</code>.</div>
       </div>
     </div>
 
@@ -4991,6 +5462,144 @@ int numDigits = (int) Math.log10(n) + 1;   // math (only for n > 0)
       </div>
     </div>
 
+    <!-- BIG-O CHEAT SHEET -->
+    <div class="card" id="tips-bigo">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-header-left"><span class="card-icon">📊</span>
+          <div><div class="card-title">Big-O Cheat Sheet — מורכבויות מלאות</div>
+          <div class="card-subtitle">Data Structures, Sorting, Patterns — הכל בטבלה אחת</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="card-badge badge-tip">Gold</span><span class="card-toggle">▼</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-section-title">⏱️ מה מורכבות מקסימלית אפשרית לפי גודל קלט?</div>
+        <table class="complexity-table">
+          <tr><th>n (גודל קלט)</th><th>מורכבות זמן מקס</th><th>דוגמת אלגוריתם</th></tr>
+          <tr><td>n ≤ 10</td><td class="tc-bad">O(n!) / O(nⁿ)</td><td>Permutations, Brute Force</td></tr>
+          <tr><td>n ≤ 20</td><td class="tc-bad">O(2ⁿ)</td><td>Subsets, Backtracking כבד</td></tr>
+          <tr><td>n ≤ 100</td><td class="tc-ok">O(n³)</td><td>Floyd-Warshall, 3 לולאות מקוננות</td></tr>
+          <tr><td>n ≤ 1,000</td><td class="tc-ok">O(n²)</td><td>Bubble Sort, DP 2D naive</td></tr>
+          <tr><td>n ≤ 100,000</td><td class="tc-ok">O(n log n)</td><td>Merge Sort, Heap Sort, TreeMap ops</td></tr>
+          <tr><td>n ≤ 1,000,000</td><td class="tc-good">O(n)</td><td>Two Pointers, HashMap, Kadane, Prefix Sum</td></tr>
+          <tr><td>n ≤ 10⁹</td><td class="tc-good">O(log n) / O(√n)</td><td>Binary Search, Math tricks</td></tr>
+        </table>
+
+        <div class="card-section-title">🗄️ Data Structure Operations — כל המורכבויות</div>
+        <table class="complexity-table">
+          <tr><th>Structure</th><th>Access</th><th>Search</th><th>Insert</th><th>Delete</th><th>Space</th></tr>
+          <tr><td>Array / int[]</td><td class="tc-good">O(1)</td><td class="tc-ok">O(n)</td><td class="tc-ok">O(n)</td><td class="tc-ok">O(n)</td><td>O(n)</td></tr>
+          <tr><td>ArrayList</td><td class="tc-good">O(1)</td><td class="tc-ok">O(n)</td><td class="tc-good">O(1)*</td><td class="tc-ok">O(n)</td><td>O(n)</td></tr>
+          <tr><td>LinkedList</td><td class="tc-ok">O(n)</td><td class="tc-ok">O(n)</td><td class="tc-good">O(1)</td><td class="tc-good">O(1)</td><td>O(n)</td></tr>
+          <tr><td>Stack / Queue (Deque)</td><td class="tc-good">O(1) peek</td><td class="tc-ok">O(n)</td><td class="tc-good">O(1)</td><td class="tc-good">O(1)</td><td>O(n)</td></tr>
+          <tr><td>HashMap / HashSet</td><td>-</td><td class="tc-good">O(1) avg</td><td class="tc-good">O(1) avg</td><td class="tc-good">O(1) avg</td><td>O(n)</td></tr>
+          <tr><td>TreeMap / TreeSet</td><td>-</td><td class="tc-ok">O(log n)</td><td class="tc-ok">O(log n)</td><td class="tc-ok">O(log n)</td><td>O(n)</td></tr>
+          <tr><td>PriorityQueue (Heap)</td><td class="tc-good">O(1) min/max</td><td class="tc-ok">O(n)</td><td class="tc-ok">O(log n)</td><td class="tc-ok">O(log n)</td><td>O(n)</td></tr>
+          <tr><td>Trie</td><td>O(L)</td><td>O(L)</td><td>O(L)</td><td>O(L)</td><td>O(N·L)</td></tr>
+          <tr><td>Union-Find (w/ compression)</td><td>-</td><td class="tc-good">O(α) ≈ O(1)</td><td class="tc-good">O(α)</td><td>-</td><td>O(n)</td></tr>
+        </table>
+        <div style="font-size:0.7rem;color:var(--text-muted);margin-top:4px;direction:rtl;">* amortized | L = string length | α = inverse Ackermann ≤ 5 לכל n מעשי | avg = average case (no hash collisions)</div>
+
+        <div class="card-section-title">⬆️ Sorting Algorithms</div>
+        <table class="complexity-table">
+          <tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th><th>Space</th><th>Stable?</th></tr>
+          <tr><td>Arrays.sort (primitives)</td><td class="tc-good">O(n log n)</td><td class="tc-ok">O(n log n)</td><td class="tc-ok">O(n log n)</td><td>O(log n)</td><td>❌ Dual-Pivot QS</td></tr>
+          <tr><td>Arrays.sort (objects)</td><td class="tc-good">O(n log n)</td><td class="tc-ok">O(n log n)</td><td class="tc-ok">O(n log n)</td><td>O(n)</td><td>✅ TimSort</td></tr>
+          <tr><td>Collections.sort</td><td class="tc-good">O(n log n)</td><td class="tc-ok">O(n log n)</td><td class="tc-ok">O(n log n)</td><td>O(n)</td><td>✅ TimSort</td></tr>
+          <tr><td>QuickSort (manual)</td><td class="tc-good">O(n log n)</td><td class="tc-ok">O(n log n)</td><td class="tc-bad">O(n²)</td><td>O(log n)</td><td>❌</td></tr>
+          <tr><td>MergeSort</td><td class="tc-good">O(n log n)</td><td class="tc-ok">O(n log n)</td><td class="tc-ok">O(n log n)</td><td>O(n)</td><td>✅</td></tr>
+          <tr><td>HeapSort</td><td class="tc-good">O(n log n)</td><td class="tc-ok">O(n log n)</td><td class="tc-ok">O(n log n)</td><td class="tc-good">O(1)</td><td>❌</td></tr>
+          <tr><td>Counting Sort</td><td class="tc-good">O(n+k)</td><td class="tc-good">O(n+k)</td><td class="tc-good">O(n+k)</td><td>O(k)</td><td>✅</td></tr>
+          <tr><td>Bucket Sort</td><td class="tc-good">O(n+k)</td><td class="tc-good">O(n+k)</td><td class="tc-bad">O(n²)</td><td>O(n+k)</td><td>✅</td></tr>
+        </table>
+
+        <div class="card-section-title">🧩 Pattern Complexities</div>
+        <table class="complexity-table">
+          <tr><th>Pattern</th><th>Time</th><th>Space</th><th>הערה</th></tr>
+          <tr><td>Two Pointers</td><td class="tc-good">O(n)</td><td class="tc-good">O(1)</td><td>מערך ממוין</td></tr>
+          <tr><td>Sliding Window</td><td class="tc-good">O(n)</td><td class="tc-good">O(k) / O(1)</td><td>k = window size</td></tr>
+          <tr><td>Binary Search</td><td class="tc-good">O(log n)</td><td class="tc-good">O(1)</td><td>על מערך ממוין</td></tr>
+          <tr><td>BFS (graph)</td><td class="tc-ok">O(V+E)</td><td class="tc-ok">O(V)</td><td>V=nodes, E=edges</td></tr>
+          <tr><td>DFS (graph)</td><td class="tc-ok">O(V+E)</td><td class="tc-ok">O(V)</td><td>call stack depth</td></tr>
+          <tr><td>Dijkstra</td><td class="tc-ok">O((V+E) log V)</td><td class="tc-ok">O(V)</td><td>with heap</td></tr>
+          <tr><td>Topological Sort</td><td class="tc-ok">O(V+E)</td><td class="tc-ok">O(V)</td><td>Kahn's BFS</td></tr>
+          <tr><td>Kadane's</td><td class="tc-good">O(n)</td><td class="tc-good">O(1)</td><td>max subarray</td></tr>
+          <tr><td>Prefix Sum (build)</td><td class="tc-ok">O(n)</td><td class="tc-ok">O(n)</td><td>preprocess</td></tr>
+          <tr><td>Prefix Sum (query)</td><td class="tc-good">O(1)</td><td>-</td><td>after build</td></tr>
+          <tr><td>DP 1D</td><td class="tc-ok">O(n)</td><td class="tc-good">O(1) opt</td><td>often space-optimizable</td></tr>
+          <tr><td>DP 2D</td><td class="tc-ok">O(m·n)</td><td class="tc-ok">O(m·n) / O(n)</td><td>rolling array opt</td></tr>
+          <tr><td>Backtracking (subsets)</td><td class="tc-bad">O(2ⁿ)</td><td class="tc-ok">O(n)</td><td>recursion depth</td></tr>
+          <tr><td>Backtracking (perms)</td><td class="tc-bad">O(n!)</td><td class="tc-ok">O(n)</td><td>recursion depth</td></tr>
+          <tr><td>Monotonic Stack</td><td class="tc-good">O(n)</td><td class="tc-ok">O(n)</td><td>each elem pushed/popped once</td></tr>
+          <tr><td>Cyclic Sort</td><td class="tc-good">O(n)</td><td class="tc-good">O(1)</td><td>in-place</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- SYSTEM DESIGN & BEHAVIORAL -->
+    <div class="card" id="tips-sysdesign">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-header-left"><span class="card-icon">🏗️</span>
+          <div><div class="card-title">System Design & Behavioral Tips</div>
+          <div class="card-subtitle">STAR method, 6-step design, components, behavioral questions</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="card-badge badge-tip">Gold</span><span class="card-toggle">▼</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-section-title">⭐ STAR Method — לשאלות Behavioral</div>
+        <div class="desc-box gold">
+          <strong>S</strong>ituation — תאר את ההקשר/הסיטואציה בתמציתיות (1-2 משפטים)<br>
+          <strong>T</strong>ask — מה היה האתגר/המשימה שלך ספציפית? (מה היה עליך לעשות?)<br>
+          <strong>A</strong>ction — מה עשית? פרט צעדים קונקרטיים. השתמש ב-<strong>"I"</strong> לא "we"!<br>
+          <strong>R</strong>esult — מה היה התוצאה? מספרים/מדדים אם אפשר (%, זמן, users)
+        </div>
+        <div class="tip-box">הכן 5-7 סיפורים מהניסיון שלך שיכולים לענות על: leadership, conflict, failure, success, impact, learning, collaboration. כל סיפור יכול לשמש לכמה שאלות!</div>
+
+        <div class="card-section-title">🏗️ System Design — 6 שלבים (15-45 דקות)</div>
+        <ol class="step-list">
+          <li><strong>Clarify Requirements</strong> — שאל לפני שמתחיל! מה scale? כמה users? DAU? read-heavy or write-heavy? latency SLA? consistency vs availability? mobile/web?</li>
+          <li><strong>Estimate Scale</strong> — "Back of envelope": כמה QPS? כמה storage? bandwidth? 1M users × 1KB/user = 1GB. 100K req/sec needs ~100 servers at 1K req/sec each.</li>
+          <li><strong>High-Level Design</strong> — צייר: Client → CDN → Load Balancer → App Servers → Cache → DB. הגדר main API endpoints (REST/GraphQL).</li>
+          <li><strong>Deep Dive</strong> — בחר 2-3 רכיבים קריטיים: DB schema, caching strategy (write-through/aside), message queue, sharding key.</li>
+          <li><strong>Identify Bottlenecks</strong> — Single points of failure, hot spots, scaling issues. איפה ה-bottleneck בload גבוה?</li>
+          <li><strong>Discuss Trade-offs</strong> — SQL vs NoSQL, strong vs eventual consistency, horizontal vs vertical scaling, sync vs async.</li>
+        </ol>
+
+        <div class="card-section-title">🧱 System Design Building Blocks</div>
+        <table class="decision-table">
+          <tr><th>רכיב</th><th>מתי להשתמש</th><th>דוגמאות</th></tr>
+          <tr><td><strong>Load Balancer</strong></td><td>High availability, traffic distribution</td><td>Nginx, AWS ALB, HAProxy</td></tr>
+          <tr><td><strong>Cache (L2)</strong></td><td>Read-heavy, reduce DB load, fast responses</td><td>Redis, Memcached</td></tr>
+          <tr><td><strong>CDN</strong></td><td>Static assets (images, JS, CSS), global users</td><td>Cloudflare, AWS CloudFront</td></tr>
+          <tr><td><strong>Message Queue</strong></td><td>Async processing, decouple services, spikes</td><td>Kafka, RabbitMQ, AWS SQS</td></tr>
+          <tr><td><strong>SQL Database</strong></td><td>ACID transactions, relational data, structured</td><td>MySQL, PostgreSQL</td></tr>
+          <tr><td><strong>NoSQL Database</strong></td><td>Horizontal scale, flexible schema, high write</td><td>MongoDB, DynamoDB, Cassandra</td></tr>
+          <tr><td><strong>Object Storage</strong></td><td>Images, videos, files, backups</td><td>AWS S3, Google GCS</td></tr>
+          <tr><td><strong>Search Engine</strong></td><td>Full-text search, relevance ranking</td><td>Elasticsearch, Apache Solr</td></tr>
+          <tr><td><strong>Rate Limiter</strong></td><td>Protect APIs, prevent abuse</td><td>Token bucket, sliding window counter</td></tr>
+          <tr><td><strong>Service Discovery</strong></td><td>Microservices, dynamic IPs</td><td>Consul, Eureka, Kubernetes</td></tr>
+        </table>
+
+        <div class="card-section-title">💬 Behavioral Questions — שאלות נפוצות</div>
+        <table class="decision-table">
+          <tr><th>קטגוריה</th><th>שאלה טיפוסית</th></tr>
+          <tr><td><strong>Leadership</strong></td><td>"Tell me about a time you led a project or initiative"</td></tr>
+          <tr><td><strong>Conflict</strong></td><td>"Describe a disagreement with a teammate. How did you resolve it?"</td></tr>
+          <tr><td><strong>Failure</strong></td><td>"Tell me about a mistake you made. What did you learn?"</td></tr>
+          <tr><td><strong>Impact</strong></td><td>"What's the most impactful thing you've built or contributed to?"</td></tr>
+          <tr><td><strong>Learning</strong></td><td>"How do you stay updated with new tech? Give a recent example."</td></tr>
+          <tr><td><strong>Prioritization</strong></td><td>"How do you handle multiple competing priorities/deadlines?"</td></tr>
+          <tr><td><strong>Collaboration</strong></td><td>"Describe working with a difficult person or stakeholder"</td></tr>
+          <tr><td><strong>Initiative</strong></td><td>"Tell me about something you did that wasn't asked of you"</td></tr>
+        </table>
+        <div class="desc-box gold"><strong>Amazon Leadership Principles (LPs):</strong> Customer Obsession · Ownership · Invent &amp; Simplify · Are Right, A Lot · Learn &amp; Be Curious · Hire &amp; Develop the Best · Insist on the Highest Standards · Think Big · Bias for Action · Frugality · Earn Trust · Dive Deep · Have Backbone; Disagree &amp; Commit · Deliver Results · Strive to be Earth's Best Employer · Success and Scale Bring Broad Responsibility</div>
+        <div class="tip-box">בראיון טכני: חשוב בקול רם, שאל שאלות לפני שמתחיל לכתוב, כתוב pseudocode קודם, בדוק edge cases, analyze complexity בסוף. The thought process matters as much as the answer!</div>
+      </div>
+    </div>
+
     </div><!-- end cards-grid -->
   </section><!-- end sec-tips -->
 
@@ -5282,31 +5891,41 @@ function toggleCard(header) {
 function toggleNav(header, subId) {
   const sub = document.getElementById(subId);
   const isOpen = header.classList.contains('open');
-  const h = sub.scrollHeight;
   if (isOpen) {
-    sub.style.maxHeight = h + 'px';
-    requestAnimationFrame(() => { sub.style.maxHeight = '0'; });
+    // Lock to current height first, then animate to 0 (smooth close)
+    sub.style.maxHeight = sub.scrollHeight + 'px';
+    requestAnimationFrame(() => sub.style.maxHeight = '0');
     header.classList.remove('open');
   } else {
-    sub.style.maxHeight = h + 'px';
-    setTimeout(() => { if (header.classList.contains('open')) sub.style.maxHeight = '9999px'; }, 350);
     header.classList.add('open');
+    sub.style.maxHeight = sub.scrollHeight + 'px';
+    sub.addEventListener('transitionend', function handler() {
+      if (header.classList.contains('open')) sub.style.maxHeight = '9999px';
+      sub.removeEventListener('transitionend', handler);
+    });
   }
 }
 
-// ===== NAVIGATE TO SECTION =====
+// ===== NAVIGATE TO SECTION (BUG FIX: active nav now works correctly) =====
 function goTo(id) {
-  const el = document.getElementById(id);
-  if (!el) return;
+  const target = document.getElementById(id);
+  if (!target) return;
   const topBar = document.querySelector('.top-bar');
   const offset = topBar ? topBar.offsetHeight + 16 : 70;
-  const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+  const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
   window.scrollTo({ top: y, behavior: 'smooth' });
-  // Update active nav item
-  document.querySelectorAll('.nav-sub-item').forEach(n => n.classList.remove('active'));
-  event && event.target && event.target.classList.add('active');
-  // Open parent nav group if closed
-  if (el) { const card = el; if (card.classList.contains('collapsed')) toggleCard(card.querySelector('.card-header')); }
+  // Highlight correct nav item by matching id in onclick attribute
+  document.querySelectorAll('.nav-sub-item').forEach(n => {
+    const fn = n.getAttribute('onclick') || '';
+    n.classList.toggle('active', fn.includes("'" + id + "'"));
+  });
+  // Expand card if it's collapsed
+  if (target.classList.contains('collapsed')) {
+    const h = target.querySelector('.card-header');
+    if (h) toggleCard(h);
+  }
+  // Close sidebar on mobile after navigation
+  if (window.innerWidth <= 900) toggleSidebar(false);
 }
 
 // ===== COPY CODE =====
@@ -5319,7 +5938,6 @@ function copyCode(btn) {
     btn.classList.add('copied');
     setTimeout(() => { btn.textContent = '📋 Copy'; btn.classList.remove('copied'); }, 2000);
   }).catch(() => {
-    // Fallback
     const range = document.createRange(); range.selectNodeContents(pre);
     window.getSelection().removeAllRanges(); window.getSelection().addRange(range);
     document.execCommand('copy');
@@ -5334,7 +5952,7 @@ document.getElementById('search-box').addEventListener('input', function(e) {
   const query = e.target.value.trim().toLowerCase();
   const cards = document.querySelectorAll('.card');
   if (!query) {
-    cards.forEach(c => { c.classList.remove('search-hidden'); });
+    cards.forEach(c => c.classList.remove('search-hidden'));
     return;
   }
   cards.forEach(card => {
@@ -5358,40 +5976,77 @@ window.addEventListener('scroll', () => {
 });
 
 // ===== HIGHLIGHT ACTIVE NAV ON SCROLL =====
-const sections = document.querySelectorAll('[id]');
 const navItems = document.querySelectorAll('.nav-sub-item');
 window.addEventListener('scroll', () => {
   let current = '';
-  sections.forEach(sec => {
-    const top = sec.getBoundingClientRect().top;
-    if (top < 120) current = sec.id;
+  document.querySelectorAll('[id]').forEach(sec => {
+    if (sec.getBoundingClientRect().top < 130) current = sec.id;
   });
+  if (!current) return;
   navItems.forEach(item => {
     const fn = item.getAttribute('onclick') || '';
     const match = fn.match(/goTo\('([^']+)'\)/);
-    item.classList.toggle('active', match && match[1] === current);
+    item.classList.toggle('active', !!(match && match[1] === current));
   });
-});
+}, { passive: true });
 
 // ===== OPEN ALL SIDEBAR NAV GROUPS ON LOAD =====
-['nav-ds','nav-sort','nav-ops','nav-algo','nav-patterns','nav-tips'].forEach(id => {
+['nav-ds','nav-sort','nav-ops','nav-algo','nav-patterns','nav-tips','nav-classic','nav-study'].forEach(id => {
   const el = document.getElementById(id);
-  if (el) el.style.maxHeight = el.scrollHeight + 'px';
-  // mark headers as open
-  const header = el && el.previousElementSibling;
+  if (!el) return;
+  el.style.maxHeight = '9999px'; // FIX: use large value, not scrollHeight (inaccurate before render)
+  const header = el.previousElementSibling;
   if (header) header.classList.add('open');
 });
 
-// ===== KEYBOARD SHORTCUT: Ctrl+F focuses search =====
+// ===== DARK MODE =====
+function toggleTheme() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const next = isDark ? 'light' : 'dark';
+  applyTheme(next);
+  localStorage.setItem('lc-theme', next);
+}
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  const icon = document.getElementById('theme-icon');
+  const label = document.querySelector('.theme-label');
+  if (icon) icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+  if (label) label.textContent = theme === 'dark' ? 'Light' : 'Dark';
+}
+// Init: use saved preference, or system preference
+(function() {
+  const saved = localStorage.getItem('lc-theme');
+  const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(saved || (systemDark ? 'dark' : 'light'));
+})();
+
+// ===== MOBILE SIDEBAR TOGGLE =====
+function toggleSidebar(force) {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  const hamburger = document.getElementById('hamburger');
+  const open = typeof force === 'boolean' ? force : !sidebar.classList.contains('mobile-open');
+  sidebar.classList.toggle('mobile-open', open);
+  overlay.classList.toggle('visible', open);
+  hamburger.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+// Close sidebar on resize back to desktop
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 900) toggleSidebar(false);
+});
+
+// ===== KEYBOARD SHORTCUTS =====
 document.addEventListener('keydown', e => {
   if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
     const sb = document.getElementById('search-box');
     if (sb) { e.preventDefault(); sb.focus(); sb.select(); }
   }
+  if (e.key === 'Escape') toggleSidebar(false);
 });
 
 console.log('%c📚 LeetCode Reference Book Loaded!', 'color:#6c5ce7;font-size:16px;font-weight:bold;');
-console.log('%cPress Ctrl+F to search. All code is copy-able. Good luck! 💪', 'color:#00b894;font-size:12px;');
+console.log('%cCtrl+F = search | Esc = close menu | Good luck! 💪', 'color:#00b894;font-size:12px;');
 </script>
 </body>
 </html>
