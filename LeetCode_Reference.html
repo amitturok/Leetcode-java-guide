@@ -58,6 +58,7 @@ body{font-family:'Heebo',sans-serif;background:var(--content-bg);color:var(--tex
 .sec-ds .section-header{background:linear-gradient(135deg,#00b894,#00cec9);}
 .sec-sort .section-header{background:linear-gradient(135deg,#e17055,#d63031);}
 .sec-ops .section-header{background:linear-gradient(135deg,#0984e3,#6c5ce7);}
+.sec-concepts .section-header{background:linear-gradient(135deg,#6c5ce7,#e17055);}
 .sec-algo .section-header{background:linear-gradient(135deg,#6c5ce7,#a29bfe);}
 .sec-patterns .section-header{background:linear-gradient(135deg,#00b894,#00cec9);}
 .sec-tips .section-header{background:linear-gradient(135deg,#fdcb6e,#e17055);}
@@ -77,6 +78,7 @@ body{font-family:'Heebo',sans-serif;background:var(--content-bg);color:var(--tex
 .badge-algo{background:rgba(162,155,254,0.15);color:#6c5ce7;}
 .badge-pattern{background:rgba(0,184,148,0.1);color:#00b894;}
 .badge-tip{background:rgba(253,203,110,0.2);color:#c49000;}
+.badge-concept{background:rgba(108,92,231,0.15);color:#6c5ce7;}
 .card-toggle{font-size:0.7rem;color:var(--text-muted);transition:transform 0.3s;}
 .card.collapsed .card-toggle{transform:rotate(-90deg);}
 .card-body{padding:0 22px 22px;}
@@ -308,7 +310,9 @@ hr.sec-div{border:none;height:2px;background:linear-gradient(90deg,transparent,r
         <div class="nav-sub-item" onclick="goTo('tips-mistakes')">❌ טעויות נפוצות</div>
         <div class="nav-sub-item" onclick="goTo('tips-cheatsheet')">📋 Cheat Sheet</div>
         <div class="nav-sub-item" onclick="goTo('tips-bigo')">📊 Big-O Cheat Sheet</div>
-        <div class="nav-sub-item" onclick="goTo('tips-sysdesign')">🏗️ System Design</div>
+        <div class="nav-sub-item" onclick="goTo('tips-star')">⭐ STAR Method</div>
+        <div class="nav-sub-item" onclick="goTo('tips-behavioral')">🎭 שאלות התנהגותיות</div>
+        <div class="nav-sub-item" onclick="goTo('tips-amazon-lp')">🏢 Amazon Leadership Principles</div>
       </div>
     </div>
 
@@ -325,10 +329,24 @@ hr.sec-div{border:none;height:2px;background:linear-gradient(90deg,transparent,r
     </div>
 
     <div class="nav-section">
+      <div class="nav-section-header" onclick="toggleNav(this,'nav-concepts')">
+        <span>💡</span><span>קונספטים בתכנות</span><span class="chevron">▲</span>
+      </div>
+      <div class="nav-sub-items" id="nav-concepts" style="max-height:0">
+        <div class="nav-sub-item" onclick="goTo('concepts-oop')">🏗️ OOP & Design Patterns</div>
+        <div class="nav-sub-item" onclick="goTo('concepts-solid')">🔑 SOLID Principles</div>
+        <div class="nav-sub-item" onclick="goTo('concepts-threads')">🔀 Multithreading</div>
+        <div class="nav-sub-item" onclick="goTo('concepts-microservices')">🌐 Microservices</div>
+        <div class="nav-sub-item" onclick="goTo('concepts-docker')">🐳 Docker</div>
+        <div class="nav-sub-item" onclick="goTo('concepts-sysdesign')">🏗️ System Design</div>
+      </div>
+    </div>
+
+    <div class="nav-section">
       <div class="nav-section-header" onclick="toggleNav(this,'nav-ds')">
         <span>🗄️</span><span>מבני נתונים</span><span class="chevron">▲</span>
       </div>
-      <div class="nav-sub-items" id="nav-ds">
+      <div class="nav-sub-items" id="nav-ds" style="max-height:0">
         <div class="nav-sub-item" onclick="goTo('ds-array')">📦 Array (int[])</div>
         <div class="nav-sub-item" onclick="goTo('ds-arraylist')">📋 ArrayList</div>
         <div class="nav-sub-item" onclick="goTo('ds-string')">📝 String & StringBuilder</div>
@@ -389,9 +407,6 @@ hr.sec-div{border:none;height:2px;background:linear-gradient(90deg,transparent,r
         <div class="nav-sub-item" onclick="goTo('ops-arrays')">📋 Arrays Utils</div>
         <div class="nav-sub-item" onclick="goTo('ops-convert')">🔄 Type Conversions</div>
         <div class="nav-sub-item" onclick="goTo('ops-bits')">💾 Bit Operations</div>
-        <div class="nav-sub-item" onclick="goTo('ops-oop')">🏗️ OOP Basics</div>
-        <div class="nav-sub-item" onclick="goTo('ops-streams')">🌊 Streams API</div>
-        <div class="nav-sub-item" onclick="goTo('ops-threads')">🔀 Multithreading</div>
       </div>
     </div>
 
@@ -2740,66 +2755,142 @@ int numDigits = (int) Math.log10(n) + 1;   // math (only for n > 0)
       </div>
     </div>
 
-    <!-- SYSTEM DESIGN & BEHAVIORAL -->
-    <div class="card" id="tips-sysdesign">
+    <!-- STAR METHOD -->
+    <div class="card" id="tips-star">
       <div class="card-header" onclick="toggleCard(this)">
-        <div class="card-header-left"><span class="card-icon">🏗️</span>
-          <div><div class="card-title">System Design & Behavioral Tips</div>
-          <div class="card-subtitle">STAR method, 6-step design, components, behavioral questions</div></div>
+        <div class="card-header-left"><span class="card-icon">⭐</span>
+          <div><div class="card-title">STAR Method — שיטת הסיפורים</div>
+          <div class="card-subtitle">Situation, Task, Action, Result — מסגרת לשאלות התנהגותיות</div></div>
         </div>
         <div style="display:flex;gap:8px;align-items:center">
-          <span class="card-badge badge-tip">Gold</span><span class="card-toggle">▼</span>
+          <span class="card-badge badge-tip">Behavioral</span><span class="card-toggle">▼</span>
         </div>
       </div>
       <div class="card-body">
-        <div class="card-section-title">⭐ STAR Method — לשאלות Behavioral</div>
-        <div class="desc-box gold">
-          <strong>S</strong>ituation — תאר את ההקשר/הסיטואציה בתמציתיות (1-2 משפטים)<br>
-          <strong>T</strong>ask — מה היה האתגר/המשימה שלך ספציפית? (מה היה עליך לעשות?)<br>
-          <strong>A</strong>ction — מה עשית? פרט צעדים קונקרטיים. השתמש ב-<strong>"I"</strong> לא "we"!<br>
-          <strong>R</strong>esult — מה היה התוצאה? מספרים/מדדים אם אפשר (%, זמן, users)
+        <div class="desc-box gold"><strong>STAR</strong> = מסגרת לענות על שאלות "ספר לי על פעם ש..." / "Tell me about a time when...". בראיונות Amazon זהו הפורמט הנדרש תמיד.</div>
+        <div class="card-section-title">📋 מבנה STAR</div>
+        <table class="decision-table">
+          <tr><th>אות</th><th>שלב</th><th>מה לכלול</th><th>זמן מומלץ</th></tr>
+          <tr><td><strong>S</strong></td><td>Situation</td><td>הקשר — מה היה הרקע, הפרויקט, הצוות</td><td>10-15%</td></tr>
+          <tr><td><strong>T</strong></td><td>Task</td><td>מה הייתה המשימה/אחריות שלך ספציפית</td><td>10-15%</td></tr>
+          <tr><td><strong>A</strong></td><td>Action</td><td>מה עשית? איזה צעדים נקטת? (הכי חשוב!)</td><td>60-70%</td></tr>
+          <tr><td><strong>R</strong></td><td>Result</td><td>מה היה התוצאה? מספרים! impact? לקח?</td><td>10-20%</td></tr>
+        </table>
+        <div class="card-section-title">✅ STAR — דוגמה מלאה</div>
+        <div class="desc-box teal">
+          <strong>שאלה:</strong> "Tell me about a time you had to meet a tight deadline."<br><br>
+          <strong>S:</strong> בפרויקט הcapstone שלי, היה לנו deadline של 3 שבועות לממש feature מורכב של real-time notifications לאפליקציית ניהול צוותים.<br><br>
+          <strong>T:</strong> הייתי אחראי על ה-backend — WebSocket server ואינטגרציה עם DB — לבד, בעוד שאר הצוות עבד על ה-frontend.<br><br>
+          <strong>A:</strong> פרקתי את המשימה לחלקים: קודם הקמתי prototype עם Spring WebSocket תוך יום, אחר כך פגשתי יומי עם הצוות ל-sync קצר של 15 דק', והחלטנו לגזור scope — השמטנו תכונות פחות קריטיות. עשיתי code review מוקדם לזהות בעיות לפני המרוץ האחרון.<br><br>
+          <strong>R:</strong> סיפקנו את ה-feature ב-18 ימים (לפני deadline), עם 0 production bugs בשבוע הראשון. הלמידה: scope management + daily sync = הכי חשוב לדדליינים.
         </div>
-        <div class="tip-box">הכן 5-7 סיפורים מהניסיון שלך שיכולים לענות על: leadership, conflict, failure, success, impact, learning, collaboration. כל סיפור יכול לשמש לכמה שאלות!</div>
+        <div class="card-section-title">💡 טיפים ל-STAR</div>
+        <ul class="step-list">
+          <li><strong>Actions > Everything:</strong> 60-70% מהתשובה צריכה להיות על מה שאתה עשית, לא על הרקע</li>
+          <li><strong>Numbers!</strong> "שיפרתי ב-40%", "צוות של 5", "deadline של 2 שבועות" — נשמע הרבה יותר טוב</li>
+          <li><strong>I not We:</strong> דבר על מה שאתה עשית, לא "עשינו" (אלא אם שיתוף פעולה הוא הנקודה)</li>
+          <li><strong>הכן 8-10 סיפורים:</strong> שתוכל להתאים אותם לשאלות שונות (conflict, failure, leadership, etc.)</li>
+          <li><strong>לקח:</strong> תמיד סיים עם מה למדת — מראה growth mindset</li>
+        </ul>
+      </div>
+    </div>
 
-        <div class="card-section-title">🏗️ System Design — 6 שלבים (15-45 דקות)</div>
-        <ol class="step-list">
-          <li><strong>Clarify Requirements</strong> — שאל לפני שמתחיל! מה scale? כמה users? DAU? read-heavy or write-heavy? latency SLA? consistency vs availability? mobile/web?</li>
-          <li><strong>Estimate Scale</strong> — "Back of envelope": כמה QPS? כמה storage? bandwidth? 1M users × 1KB/user = 1GB. 100K req/sec needs ~100 servers at 1K req/sec each.</li>
-          <li><strong>High-Level Design</strong> — צייר: Client → CDN → Load Balancer → App Servers → Cache → DB. הגדר main API endpoints (REST/GraphQL).</li>
-          <li><strong>Deep Dive</strong> — בחר 2-3 רכיבים קריטיים: DB schema, caching strategy (write-through/aside), message queue, sharding key.</li>
-          <li><strong>Identify Bottlenecks</strong> — Single points of failure, hot spots, scaling issues. איפה ה-bottleneck בload גבוה?</li>
-          <li><strong>Discuss Trade-offs</strong> — SQL vs NoSQL, strong vs eventual consistency, horizontal vs vertical scaling, sync vs async.</li>
-        </ol>
+    <!-- BEHAVIORAL QUESTIONS -->
+    <div class="card" id="tips-behavioral">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-header-left"><span class="card-icon">🎭</span>
+          <div><div class="card-title">שאלות התנהגותיות — Bank of Questions</div>
+          <div class="card-subtitle">השאלות הנפוצות ביותר עם עצות לכל קטגוריה</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="card-badge badge-tip">Behavioral</span><span class="card-toggle">▼</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="desc-box gold">אלה השאלות שחוזרות בכל ראיון — הכן תשובות STAR לכל אחת מהן מראש!</div>
+        <div class="card-section-title">💥 Conflict & Challenges</div>
+        <ul class="step-list">
+          <li>Tell me about a time you had a conflict with a teammate. How did you resolve it?</li>
+          <li>Describe a situation where you disagreed with your manager. What did you do?</li>
+          <li>Tell me about the biggest technical challenge you've faced.</li>
+          <li>Describe a time you had to deal with a difficult stakeholder.</li>
+        </ul>
+        <div class="card-section-title">⏰ Deadlines & Pressure</div>
+        <ul class="step-list">
+          <li>Tell me about a time you had to meet a tight deadline.</li>
+          <li>Describe a time you had to prioritize tasks under pressure.</li>
+          <li>Tell me about a time you had to manage multiple competing priorities.</li>
+        </ul>
+        <div class="card-section-title">🚀 Leadership & Initiative</div>
+        <ul class="step-list">
+          <li>Tell me about a time you took initiative without being asked.</li>
+          <li>Describe a time you led a project or team.</li>
+          <li>Tell me about a time you mentored someone.</li>
+          <li>Describe a time you influenced others without direct authority.</li>
+        </ul>
+        <div class="card-section-title">❌ Failure & Learning</div>
+        <ul class="step-list">
+          <li>Tell me about a time you failed. What did you learn?</li>
+          <li>Describe a mistake you made and how you handled it.</li>
+          <li>Tell me about a time your project didn't go as planned.</li>
+        </ul>
+        <div class="card-section-title">🤝 Teamwork & Collaboration</div>
+        <ul class="step-list">
+          <li>Tell me about a time you worked on a cross-functional team.</li>
+          <li>Describe a time you helped a teammate who was struggling.</li>
+          <li>Tell me about a successful project you delivered as a team.</li>
+        </ul>
+        <div class="card-section-title">📈 Impact & Improvement</div>
+        <ul class="step-list">
+          <li>Tell me about a time you improved a process.</li>
+          <li>Describe your most impactful project.</li>
+          <li>Tell me about a time you used data to make a decision.</li>
+          <li>What's the most technically complex thing you've built?</li>
+        </ul>
+        <div class="card-section-title">💡 שאלות אישיות נפוצות</div>
+        <ul class="step-list">
+          <li>Why do you want to work at [company]?</li>
+          <li>Where do you see yourself in 5 years?</li>
+          <li>What's your biggest strength? Weakness?</li>
+          <li>Tell me about yourself (elevator pitch — 2 minutes)</li>
+          <li>Why are you leaving your current role?</li>
+        </ul>
+      </div>
+    </div>
 
-        <div class="card-section-title">🧱 System Design Building Blocks</div>
+    <!-- AMAZON LEADERSHIP PRINCIPLES -->
+    <div class="card" id="tips-amazon-lp">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-header-left"><span class="card-icon">🏢</span>
+          <div><div class="card-title">Amazon Leadership Principles</div>
+          <div class="card-subtitle">16 עקרונות — חייב להכיר לראיון Amazon</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="card-badge badge-tip">Amazon</span><span class="card-toggle">▼</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="desc-box gold">כל שאלה behavioral ב-Amazon מקושרת ל-Leadership Principle אחד. הכר אותם — וחשוב על סיפור STAR שמדגים כל אחד.</div>
         <table class="decision-table">
-          <tr><th>רכיב</th><th>מתי להשתמש</th><th>דוגמאות</th></tr>
-          <tr><td><strong>Load Balancer</strong></td><td>High availability, traffic distribution</td><td>Nginx, AWS ALB, HAProxy</td></tr>
-          <tr><td><strong>Cache (L2)</strong></td><td>Read-heavy, reduce DB load, fast responses</td><td>Redis, Memcached</td></tr>
-          <tr><td><strong>CDN</strong></td><td>Static assets (images, JS, CSS), global users</td><td>Cloudflare, AWS CloudFront</td></tr>
-          <tr><td><strong>Message Queue</strong></td><td>Async processing, decouple services, spikes</td><td>Kafka, RabbitMQ, AWS SQS</td></tr>
-          <tr><td><strong>SQL Database</strong></td><td>ACID transactions, relational data, structured</td><td>MySQL, PostgreSQL</td></tr>
-          <tr><td><strong>NoSQL Database</strong></td><td>Horizontal scale, flexible schema, high write</td><td>MongoDB, DynamoDB, Cassandra</td></tr>
-          <tr><td><strong>Object Storage</strong></td><td>Images, videos, files, backups</td><td>AWS S3, Google GCS</td></tr>
-          <tr><td><strong>Search Engine</strong></td><td>Full-text search, relevance ranking</td><td>Elasticsearch, Apache Solr</td></tr>
-          <tr><td><strong>Rate Limiter</strong></td><td>Protect APIs, prevent abuse</td><td>Token bucket, sliding window counter</td></tr>
-          <tr><td><strong>Service Discovery</strong></td><td>Microservices, dynamic IPs</td><td>Consul, Eureka, Kubernetes</td></tr>
+          <tr><th>#</th><th>עיקרון</th><th>מה מחפשים</th><th>שאלה טיפוסית</th></tr>
+          <tr><td>1</td><td><strong>Customer Obsession</strong></td><td>לשים לקוחות קודם לכל</td><td>"Tell me about a time you went above and beyond for a customer"</td></tr>
+          <tr><td>2</td><td><strong>Ownership</strong></td><td>לקחת אחריות מעבר לתפקיד</td><td>"Tell me about a time you took ownership of a problem"</td></tr>
+          <tr><td>3</td><td><strong>Invent &amp; Simplify</strong></td><td>יצירתיות + פישוט</td><td>"Describe an innovative solution you came up with"</td></tr>
+          <tr><td>4</td><td><strong>Are Right, A Lot</strong></td><td>שיפוט טוב, נכון לעתים קרובות</td><td>"Tell me about a time your judgment was correct vs consensus"</td></tr>
+          <tr><td>5</td><td><strong>Learn &amp; Be Curious</strong></td><td>למידה עצמית ושאלות</td><td>"What have you taught yourself recently?"</td></tr>
+          <tr><td>6</td><td><strong>Hire &amp; Develop the Best</strong></td><td>לגייס ולפתח אנשים</td><td>"Tell me about someone you mentored"</td></tr>
+          <tr><td>7</td><td><strong>Insist on Highest Standards</strong></td><td>לא להתפשר על איכות</td><td>"Tell me about a time you raised the bar"</td></tr>
+          <tr><td>8</td><td><strong>Think Big</strong></td><td>חשיבה נרחבת, vision</td><td>"Tell me about a time you thought outside the box"</td></tr>
+          <tr><td>9</td><td><strong>Bias for Action</strong></td><td>פעולה מהירה גם עם חוסר ודאות</td><td>"Tell me about a time you acted quickly with limited info"</td></tr>
+          <tr><td>10</td><td><strong>Frugality</strong></td><td>עשה יותר עם פחות</td><td>"How did you accomplish something with limited resources?"</td></tr>
+          <tr><td>11</td><td><strong>Earn Trust</strong></td><td>בניית אמון עם others</td><td>"Tell me about a time you had to rebuild trust"</td></tr>
+          <tr><td>12</td><td><strong>Dive Deep</strong></td><td>לא להסתפק בסקירה שטחית</td><td>"Tell me about a time you investigated a root cause"</td></tr>
+          <tr><td>13</td><td><strong>Have Backbone; Disagree &amp; Commit</strong></td><td>להביע דעה ולהתמסר</td><td>"Tell me about a time you disagreed but still executed"</td></tr>
+          <tr><td>14</td><td><strong>Deliver Results</strong></td><td>לספק, regardless of obstacles</td><td>"Tell me about a time you delivered despite obstacles"</td></tr>
+          <tr><td>15</td><td><strong>Strive to be Earth's Best Employer</strong></td><td>well-being של צוות</td><td>"How do you support your team's growth?"</td></tr>
+          <tr><td>16</td><td><strong>Success &amp; Scale Bring Broad Responsibility</strong></td><td>חשיבה על impact רחב</td><td>"How do you think about the broader impact of your work?"</td></tr>
         </table>
-
-        <div class="card-section-title">💬 Behavioral Questions — שאלות נפוצות</div>
-        <table class="decision-table">
-          <tr><th>קטגוריה</th><th>שאלה טיפוסית</th></tr>
-          <tr><td><strong>Leadership</strong></td><td>"Tell me about a time you led a project or initiative"</td></tr>
-          <tr><td><strong>Conflict</strong></td><td>"Describe a disagreement with a teammate. How did you resolve it?"</td></tr>
-          <tr><td><strong>Failure</strong></td><td>"Tell me about a mistake you made. What did you learn?"</td></tr>
-          <tr><td><strong>Impact</strong></td><td>"What's the most impactful thing you've built or contributed to?"</td></tr>
-          <tr><td><strong>Learning</strong></td><td>"How do you stay updated with new tech? Give a recent example."</td></tr>
-          <tr><td><strong>Prioritization</strong></td><td>"How do you handle multiple competing priorities/deadlines?"</td></tr>
-          <tr><td><strong>Collaboration</strong></td><td>"Describe working with a difficult person or stakeholder"</td></tr>
-          <tr><td><strong>Initiative</strong></td><td>"Tell me about something you did that wasn't asked of you"</td></tr>
-        </table>
-        <div class="desc-box gold"><strong>Amazon Leadership Principles (LPs):</strong> Customer Obsession · Ownership · Invent &amp; Simplify · Are Right, A Lot · Learn &amp; Be Curious · Hire &amp; Develop the Best · Insist on the Highest Standards · Think Big · Bias for Action · Frugality · Earn Trust · Dive Deep · Have Backbone; Disagree &amp; Commit · Deliver Results · Strive to be Earth's Best Employer · Success and Scale Bring Broad Responsibility</div>
-        <div class="tip-box">בראיון טכני: חשוב בקול רם, שאל שאלות לפני שמתחיל לכתוב, כתוב pseudocode קודם, בדוק edge cases, analyze complexity בסוף. The thought process matters as much as the answer!</div>
+        <div class="tip-box">טיפ: לפני ראיון Amazon, כתוב בעיפרון 2-3 סיפורים שיכולים לשמש 3-4 עקרונות שונים. סיפור טוב על "Ownership" יכול לשמש גם Bias for Action ו-Deliver Results.</div>
       </div>
     </div>
 
@@ -2965,6 +3056,615 @@ int numDigits = (int) Math.log10(n) + 1;   // math (only for n > 0)
 
     </div>
   </section>
+
+
+  <!-- ═══════════════════════════════════════ PROGRAMMING CONCEPTS ═══ -->
+  <section class="content-section sec-concepts" id="sec-concepts">
+    <div class="section-header">
+      <span class="section-emoji">💡</span>
+      <div class="section-header-text">
+        <h2>קונספטים בתכנות</h2>
+        <p>OOP, Multithreading, Microservices, Docker & System Design</p>
+      </div>
+      <span class="section-count">6 נושאים</span>
+    </div>
+    <div class="cards-grid">
+
+    <!-- OOP & DESIGN PATTERNS -->
+    <div class="card" id="concepts-oop">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-header-left"><span class="card-icon">🏗️</span>
+          <div><div class="card-title">OOP — עקרונות ודפוסי עיצוב</div>
+          <div class="card-subtitle">4 עקרונות, Interface vs Abstract, Design Patterns</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="card-badge badge-concept">OOP</span><span class="card-toggle">▼</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="desc-box blue">OOP — Object-Oriented Programming — הבסיס לכל ראיון Java. חייב להכיר: 4 העקרונות, ההבדל בין interface לabstract class, ועיקרי Design Patterns.</div>
+        <div class="card-section-title">🔑 4 עקרונות OOP</div>
+        <table class="decision-table">
+          <tr><th>עיקרון</th><th>הסבר</th><th>Java keyword</th></tr>
+          <tr><td><strong>Encapsulation</strong></td><td>הסתרת מידע, חשיפה דרך public methods</td><td><code class="inline">private</code>, getters/setters</td></tr>
+          <tr><td><strong>Inheritance</strong></td><td>קלאס ילד מקבל properties של קלאס אב</td><td><code class="inline">extends</code></td></tr>
+          <tr><td><strong>Polymorphism</strong></td><td>אותה פונקציה, התנהגות שונה לפי סוג האובייקט</td><td><code class="inline">@Override</code>, <code class="inline">instanceof</code></td></tr>
+          <tr><td><strong>Abstraction</strong></td><td>הסתרת implementation, חשיפת contract בלבד</td><td><code class="inline">abstract</code>, <code class="inline">interface</code></td></tr>
+        </table>
+        <div class="card-section-title">❓ Interface vs Abstract Class</div>
+        <table class="decision-table">
+          <tr><th></th><th>Interface</th><th>Abstract Class</th></tr>
+          <tr><td><strong>ירושה</strong></td><td><code class="inline">implements</code> (multiple!)</td><td><code class="inline">extends</code> (רק אחד)</td></tr>
+          <tr><td><strong>Fields</strong></td><td>רק <code class="inline">static final</code></td><td>כל סוג fields</td></tr>
+          <tr><td><strong>Constructor</strong></td><td>אין</td><td>יש (לא instantiable)</td></tr>
+          <tr><td><strong>Methods</strong></td><td>abstract + default + static</td><td>abstract + concrete</td></tr>
+          <tr><td><strong>מתי?</strong></td><td>הגדרת contract, multiple types</td><td>shared base behavior + specialization</td></tr>
+        </table>
+        <div class="card-section-title">☕ קוד לדוגמה</div>
+        <div class="code-wrapper"><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+<pre><code class="language-java">// ===== INTERFACE =====
+interface Shape {
+    double area();                                           // implicitly abstract
+    default String describe() { return "I am a shape"; }   // Java 8+ default
+    static Shape ofCircle(double r) { return new Circle(r); }
+}
+
+// ===== ABSTRACT CLASS =====
+abstract class Animal {
+    String name;
+    Animal(String name) { this.name = name; }
+    abstract void sound();
+    void breathe() { System.out.println("breathing"); }
+}
+
+// ===== INHERITANCE + POLYMORPHISM =====
+class Dog extends Animal {
+    Dog(String name) { super(name); }
+    @Override void sound() { System.out.println(name + ": Woof!"); }
+}
+
+Animal a = new Dog("Rex");
+a.sound();  // Dog.sound() — runtime dispatch!
+
+if (a instanceof Dog d) {  // Java 16+ pattern matching
+    d.sound();
+}
+
+// ===== MULTIPLE INTERFACES =====
+class Circle implements Shape, Comparable&lt;Circle&gt; {
+    double radius;
+    Circle(double r) { this.radius = r; }
+    @Override public double area() { return Math.PI * radius * radius; }
+    @Override public int compareTo(Circle o) { return Double.compare(this.radius, o.radius); }
+}</code></pre></div>
+        <div class="tip-box">בראיון: interface = "מה" (contract), abstract class = "איך חלקית" (partial impl). Multiple interfaces → composition over inheritance. ב-LeetCode design questions תמיד עדיף interfaces.</div>
+
+        <div class="card-section-title">🎨 Design Patterns — הכי חשובים לראיונות</div>
+        <table class="decision-table">
+          <tr><th>Pattern</th><th>סוג</th><th>מטרה</th><th>דוגמה</th></tr>
+          <tr><td><strong>Singleton</strong></td><td>Creational</td><td>מופע יחיד של class</td><td>DB connection, Config</td></tr>
+          <tr><td><strong>Factory</strong></td><td>Creational</td><td>יצירת objects בלי לדעת type בדיוק</td><td>Logger, Shape factory</td></tr>
+          <tr><td><strong>Builder</strong></td><td>Creational</td><td>בניית objects מורכבים שלב אחר שלב</td><td>HTTP request, Query builder</td></tr>
+          <tr><td><strong>Observer</strong></td><td>Behavioral</td><td>Event-driven notification</td><td>UI events, Kafka consumers</td></tr>
+          <tr><td><strong>Strategy</strong></td><td>Behavioral</td><td>החלפת אלגוריתם ב-runtime</td><td>Payment, Sort strategy</td></tr>
+          <tr><td><strong>Decorator</strong></td><td>Structural</td><td>הוספת behavior בלי לשנות class</td><td>Java I/O streams</td></tr>
+          <tr><td><strong>Adapter</strong></td><td>Structural</td><td>תאימות בין interfaces שונים</td><td>Legacy code integration</td></tr>
+          <tr><td><strong>Template Method</strong></td><td>Behavioral</td><td>שלד אלגוריתם, steps בsubclasses</td><td>Sorting hooks, HTTP handlers</td></tr>
+        </table>
+        <div class="code-wrapper"><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+<pre><code class="language-java">// === SINGLETON (double-checked locking) ===
+class Singleton {
+    private static volatile Singleton instance;
+    private Singleton() {}
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized(Singleton.class) {
+                if (instance == null) instance = new Singleton();
+            }
+        }
+        return instance;
+    }
+}
+
+// === FACTORY ===
+interface Logger { void log(String msg); }
+class ConsoleLogger implements Logger { public void log(String m) { System.out.println(m); } }
+class FileLogger    implements Logger { public void log(String m) { /* write to file */ } }
+class LoggerFactory {
+    static Logger create(String type) {
+        return switch(type) {
+            case "console" -> new ConsoleLogger();
+            case "file"    -> new FileLogger();
+            default        -> throw new IllegalArgumentException("Unknown: " + type);
+        };
+    }
+}
+
+// === BUILDER ===
+class HttpRequest {
+    private final String url, method;
+    private final Map&lt;String,String&gt; headers;
+    private HttpRequest(Builder b) { this.url=b.url; this.method=b.method; this.headers=b.headers; }
+    static class Builder {
+        String url, method = "GET";
+        Map&lt;String,String&gt; headers = new HashMap&lt;&gt;();
+        Builder url(String u)              { this.url=u; return this; }
+        Builder method(String m)           { this.method=m; return this; }
+        Builder header(String k, String v) { headers.put(k,v); return this; }
+        HttpRequest build()                { return new HttpRequest(this); }
+    }
+}
+// Usage: new HttpRequest.Builder().url("https://api.example.com").method("POST").build();
+
+// === OBSERVER ===
+interface Observer { void update(String event); }
+class EventBus {
+    List&lt;Observer&gt; listeners = new ArrayList&lt;&gt;();
+    void subscribe(Observer o)   { listeners.add(o); }
+    void unsubscribe(Observer o) { listeners.remove(o); }
+    void publish(String event)   { listeners.forEach(o -&gt; o.update(event)); }
+}
+
+// === STRATEGY ===
+interface PaymentStrategy { void pay(int amount); }
+class CreditCard implements PaymentStrategy { public void pay(int a) { System.out.println("CC: " + a); } }
+class PayPal     implements PaymentStrategy { public void pay(int a) { System.out.println("PP: " + a); } }
+class ShoppingCart {
+    PaymentStrategy strategy;
+    void setStrategy(PaymentStrategy s) { this.strategy = s; }
+    void checkout(int amount) { strategy.pay(amount); }
+}
+
+// === DECORATOR ===
+interface Coffee { double cost(); String description(); }
+class SimpleCoffee implements Coffee {
+    public double cost() { return 1.0; }
+    public String description() { return "Coffee"; }
+}
+class MilkDecorator implements Coffee {
+    Coffee coffee;
+    MilkDecorator(Coffee c) { this.coffee = c; }
+    public double cost()        { return coffee.cost() + 0.5; }
+    public String description() { return coffee.description() + ", Milk"; }
+}</code></pre></div>
+        <div class="card-section-title">🧬 Generics</div>
+        <div class="code-wrapper"><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+<pre><code class="language-java">// Generic class
+class Pair&lt;A, B&gt; {
+    A first; B second;
+    Pair(A a, B b) { this.first=a; this.second=b; }
+    @Override public String toString() { return "(" + first + ", " + second + ")"; }
+}
+
+// Generic method
+&lt;T extends Comparable&lt;T&gt;&gt; T max(T a, T b) { return a.compareTo(b) &gt;= 0 ? a : b; }
+
+// Bounded wildcards
+void printList(List&lt;? extends Number&gt; list) { // read-only — accepts List&lt;Integer&gt;, List&lt;Double&gt;...
+    list.forEach(System.out::println);
+}
+void addNumbers(List&lt;? super Integer&gt; list) { // write — accepts List&lt;Integer&gt;, List&lt;Number&gt;, List&lt;Object&gt;
+    list.add(42);
+}
+// Rule of thumb: Producer Extends, Consumer Super (PECS)</code></pre></div>
+        <div class="card-section-title">λ Lambda & Functional Interfaces</div>
+        <div class="code-wrapper"><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+<pre><code class="language-java">// Built-in functional interfaces (java.util.function)
+Predicate&lt;Integer&gt; isEven   = n -&gt; n % 2 == 0;          // boolean test(T)
+Function&lt;String, Integer&gt; len = String::length;           // R apply(T)
+Consumer&lt;String&gt; print      = System.out::println;        // void accept(T)
+Supplier&lt;List&lt;Integer&gt;&gt; newList = ArrayList::new;         // T get()
+BiFunction&lt;Integer,Integer,Integer&gt; add = (a,b) -&gt; a+b;
+
+// Comparator (most common in interviews)
+List&lt;String&gt; words = Arrays.asList("banana","apple","cherry");
+words.sort(Comparator.comparingInt(String::length)
+           .thenComparing(Comparator.naturalOrder()));
+
+// Method references
+words.forEach(System.out::println);       // instance::method
+List&lt;String&gt; upper = words.stream()
+    .map(String::toUpperCase)              // ClassName::method
+    .collect(Collectors.toList());
+
+// Composing predicates
+Predicate&lt;Integer&gt; isPositive = n -&gt; n &gt; 0;
+Predicate&lt;Integer&gt; isEvenAndPos = isEven.and(isPositive);
+Predicate&lt;Integer&gt; isEvenOrNeg  = isEven.or(isPositive.negate());</code></pre></div>
+      </div>
+    </div>
+
+    <!-- SOLID PRINCIPLES -->
+    <div class="card" id="concepts-solid">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-header-left"><span class="card-icon">🔑</span>
+          <div><div class="card-title">SOLID Principles</div>
+          <div class="card-subtitle">5 עקרונות לקוד ניתן לתחזוקה — שאלות ראיון נפוצות</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="card-badge badge-concept">Design</span><span class="card-toggle">▼</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="desc-box blue">SOLID הם 5 עקרונות עיצוב OOP שנוסחו על ידי Robert C. Martin ("Uncle Bob"). בראיונות טכניים מבקשים להסביר לפחות 2-3 מהם עם דוגמה.</div>
+        <table class="decision-table">
+          <tr><th>ראשי תיבות</th><th>שם</th><th>עיקרון</th><th>דוגמה לפגיעה</th></tr>
+          <tr><td><strong>S</strong></td><td>Single Responsibility</td><td>לכל class אחריות אחת בלבד</td><td>Class שגם שולח email וגם מנהל DB</td></tr>
+          <tr><td><strong>O</strong></td><td>Open/Closed</td><td>פתוח להרחבה, סגור לשינוי</td><td>if/else בmain logic במקום polymorphism</td></tr>
+          <tr><td><strong>L</strong></td><td>Liskov Substitution</td><td>subclass חייב לעבוד במקום parent</td><td>Square extends Rectangle ושובר behavior</td></tr>
+          <tr><td><strong>I</strong></td><td>Interface Segregation</td><td>interfaces קטנים וממוקדים</td><td>Interface ענק שמכריח implement methods לא רלוונטיות</td></tr>
+          <tr><td><strong>D</strong></td><td>Dependency Inversion</td><td>תלה ב-abstractions לא ב-concretes</td><td>new MySQLDatabase() ישירות בemail class</td></tr>
+        </table>
+        <div class="card-section-title">☕ SOLID בקוד</div>
+        <div class="code-wrapper"><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+<pre><code class="language-java">// ===== S: Single Responsibility =====
+// BAD: one class does everything
+class UserManager {
+    void saveUser(User u) { /* DB logic */ }
+    void sendWelcomeEmail(User u) { /* email logic */ }
+    void generateReport(User u) { /* report logic */ }
+}
+// GOOD: each class has one job
+class UserRepository  { void save(User u) { /* DB */ } }
+class EmailService    { void sendWelcome(User u) { /* email */ } }
+class ReportGenerator { void generate(User u) { /* report */ } }
+
+// ===== O: Open/Closed =====
+// BAD: modify existing code to add discount type
+class DiscountCalculator {
+    double calc(String type, double price) {
+        if (type.equals("student"))  return price * 0.8;
+        if (type.equals("employee")) return price * 0.7;
+        // add new type = touch this code = BAD
+        return price;
+    }
+}
+// GOOD: extend without modifying
+interface Discount { double apply(double price); }
+class StudentDiscount  implements Discount { public double apply(double p) { return p * 0.8; } }
+class EmployeeDiscount implements Discount { public double apply(double p) { return p * 0.7; } }
+class VIPDiscount      implements Discount { public double apply(double p) { return p * 0.5; } }
+
+// ===== D: Dependency Inversion =====
+// BAD: tightly coupled to MySQL
+class OrderService {
+    MySQLDatabase db = new MySQLDatabase(); // concrete dependency!
+    void save(Order o) { db.insert(o); }
+}
+// GOOD: depend on abstraction
+interface Database { void insert(Object o); }
+class MySQLDatabase implements Database { public void insert(Object o) { /* ... */ } }
+class OrderService2 {
+    Database db; // abstraction
+    OrderService2(Database db) { this.db = db; } // injected!
+    void save(Order o) { db.insert(o); }
+}</code></pre></div>
+        <div class="tip-box">בראיון: "Can you give an example of a SOLID violation?" — תאר UserManager שעושה הכל, ואז הסבר כיצד תפרק אותו.</div>
+      </div>
+    </div>
+
+    <!-- MULTITHREADING -->
+    <div class="card" id="concepts-threads">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-header-left"><span class="card-icon">🔀</span>
+          <div><div class="card-title">Multithreading & Concurrency</div>
+          <div class="card-subtitle">Thread lifecycle, synchronized, locks, concurrent collections</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="card-badge badge-concept">Threads</span><span class="card-toggle">▼</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="desc-box blue">ב-Java multithreading חיוני לראיונות senior. נושאים עיקריים: Thread lifecycle, synchronized, volatile, atomic types, ExecutorService, concurrent collections.</div>
+        <div class="card-section-title">🔄 Thread Lifecycle</div>
+        <table class="decision-table">
+          <tr><th>מצב</th><th>הסבר</th></tr>
+          <tr><td><strong>NEW</strong></td><td>Thread נוצר אבל טרם הופעל</td></tr>
+          <tr><td><strong>RUNNABLE</strong></td><td>רץ או מוכן לרוץ (CPU scheduler מחליט)</td></tr>
+          <tr><td><strong>BLOCKED</strong></td><td>מחכה ל-monitor lock (synchronized)</td></tr>
+          <tr><td><strong>WAITING</strong></td><td>מחכה ל-notify() / join()</td></tr>
+          <tr><td><strong>TIMED_WAITING</strong></td><td>מחכה עם timeout (sleep, wait(ms))</td></tr>
+          <tr><td><strong>TERMINATED</strong></td><td>סיים ריצה</td></tr>
+        </table>
+        <div class="code-wrapper"><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+<pre><code class="language-java">// ===== THREAD CREATION — 3 דרכים =====
+// 1. Extend Thread
+class MyThread extends Thread {
+    @Override public void run() { System.out.println("Thread: " + Thread.currentThread().getName()); }
+}
+new MyThread().start();
+
+// 2. Implement Runnable (preferred — no single inheritance waste)
+Thread t = new Thread(() -&gt; System.out.println("Lambda thread!"));
+t.start();
+
+// 3. ExecutorService (best for production)
+ExecutorService pool = Executors.newFixedThreadPool(4);
+pool.submit(() -&gt; System.out.println("Pool thread"));
+pool.shutdown();
+
+// ===== SYNCHRONIZED =====
+class Counter {
+    private int count = 0;
+    public synchronized void increment() { count++; }  // only 1 thread at a time
+    public synchronized int get()        { return count; }
+
+    // or synchronized block (finer granularity):
+    private final Object lock = new Object();
+    public void safeIncrement() {
+        synchronized(lock) { count++; }
+    }
+}
+
+// ===== VOLATILE — visibility guarantee only =====
+class SharedFlag {
+    private volatile boolean running = true;  // all threads see latest value
+    void stop() { running = false; }
+    void run()  { while (running) { /* work */ } }
+}
+
+// ===== ATOMIC TYPES =====
+AtomicInteger counter = new AtomicInteger(0);
+counter.incrementAndGet();       // atomic read-modify-write
+counter.compareAndSet(5, 10);    // CAS: if value==5, set to 10
+
+// ===== EXECUTOR SERVICE + FUTURE =====
+ExecutorService ex = Executors.newFixedThreadPool(2);
+Future&lt;Integer&gt; f = ex.submit(() -&gt; 42 * 42);
+int result = f.get();  // blocks until done — be careful with deadlocks!
+
+// ===== CONCURRENT COLLECTIONS =====
+ConcurrentHashMap&lt;String, Integer&gt; map = new ConcurrentHashMap&lt;&gt;();
+map.put("key", 1);
+map.computeIfAbsent("key", k -&gt; 0);
+map.merge("key", 1, Integer::sum); // thread-safe accumulate
+
+BlockingQueue&lt;Integer&gt; queue = new LinkedBlockingQueue&lt;&gt;(10);
+queue.put(1);   // blocks if full
+queue.take();   // blocks if empty
+
+// ===== REENTRANT LOCK =====
+ReentrantLock lock = new ReentrantLock();
+lock.lock();
+try { /* critical section */ }
+finally { lock.unlock(); } // ALWAYS unlock in finally!
+
+boolean got = lock.tryLock(100, TimeUnit.MILLISECONDS); // try with timeout
+
+// ===== SEMAPHORE =====
+Semaphore sem = new Semaphore(3); // max 3 concurrent
+sem.acquire(); // blocks if 0 permits
+try { /* limited resource */ }
+finally { sem.release(); }
+
+// ===== COUNTDOWNLATCH =====
+CountDownLatch latch = new CountDownLatch(3);
+for (int i=0; i&lt;3; i++) {
+    int fi = i;
+    new Thread(() -&gt; { doWork(fi); latch.countDown(); }).start();
+}
+latch.await(); // main thread waits for all 3 workers</code></pre></div>
+        <div class="card-section-title">⚡ מתי להשתמש במה</div>
+        <table class="decision-table">
+          <tr><th>בעיה</th><th>פתרון</th></tr>
+          <tr><td>Shared state — מתודה שלמה</td><td><code class="inline">synchronized</code> method</td></tr>
+          <tr><td>Counter thread-safe</td><td><code class="inline">AtomicInteger</code></td></tr>
+          <tr><td>Visibility בין threads</td><td><code class="inline">volatile</code></td></tr>
+          <tr><td>Pool of threads</td><td><code class="inline">ExecutorService</code></td></tr>
+          <tr><td>Thread-safe Map</td><td><code class="inline">ConcurrentHashMap</code></td></tr>
+          <tr><td>Producer-Consumer</td><td><code class="inline">BlockingQueue</code></td></tr>
+          <tr><td>Limit concurrent access to N</td><td><code class="inline">Semaphore</code></td></tr>
+          <tr><td>Wait for N threads to finish</td><td><code class="inline">CountDownLatch</code></td></tr>
+          <tr><td>tryLock / timeout locking</td><td><code class="inline">ReentrantLock</code></td></tr>
+        </table>
+        <div class="warning-box"><strong>synchronized vs volatile:</strong> <code class="inline">volatile</code> מבטיח visibility בלבד — לא atomicity. <code class="inline">count++</code> הם 3 פעולות. לכן <code class="inline">volatile int count; count++</code> = NOT thread-safe. השתמש ב-<code class="inline">AtomicInteger</code>.</div>
+      </div>
+    </div>
+
+    <!-- MICROSERVICES -->
+    <div class="card" id="concepts-microservices">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-header-left"><span class="card-icon">🌐</span>
+          <div><div class="card-title">Microservices Architecture</div>
+          <div class="card-subtitle">עקרונות, תקשורת, API Gateway, Service Discovery</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="card-badge badge-concept">Architecture</span><span class="card-toggle">▼</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="desc-box blue">Microservices = ארכיטקטורה שבה כל שירות עצמאי, deployable בנפרד, מתקשר דרך APIs. ההפך מ-Monolith. חשוב להבין כיצד שירותים מתקשרים, fault tolerance, ו-scalability.</div>
+        <div class="card-section-title">📊 Monolith vs Microservices</div>
+        <table class="decision-table">
+          <tr><th>היבט</th><th>Monolith</th><th>Microservices</th></tr>
+          <tr><td>Deploy</td><td>הכל ביחד</td><td>כל שירות בנפרד</td></tr>
+          <tr><td>Scale</td><td>הכל מוגדל ביחד</td><td>כל שירות לפי צורך</td></tr>
+          <tr><td>Tech Stack</td><td>אחיד</td><td>שונה לכל שירות</td></tr>
+          <tr><td>Failure</td><td>כשל אחד = downtime כולל</td><td>כשל מבודד</td></tr>
+          <tr><td>Complexity</td><td>פשוט לפיתוח ראשוני</td><td>מורכב — networking, data</td></tr>
+          <tr><td>מתאים ל</td><td>Startup, MVP, צוות קטן</td><td>Scale גדול, צוותים מרובים</td></tr>
+        </table>
+        <div class="card-section-title">🔗 תקשורת בין שירותים</div>
+        <table class="decision-table">
+          <tr><th>סוג</th><th>מנגנון</th><th>מתי</th></tr>
+          <tr><td><strong>Synchronous</strong></td><td>REST/HTTP, gRPC</td><td>תגובה מיידית נדרשת</td></tr>
+          <tr><td><strong>Asynchronous</strong></td><td>Kafka, RabbitMQ, SQS</td><td>decoupling, high volume</td></tr>
+          <tr><td><strong>API Gateway</strong></td><td>Reverse proxy, routing</td><td>כניסה אחת ל-clients</td></tr>
+          <tr><td><strong>Service Mesh</strong></td><td>Istio, Linkerd</td><td>load balancing, retries, mTLS</td></tr>
+        </table>
+        <div class="card-section-title">🏗️ רכיבים עיקריים</div>
+        <table class="decision-table">
+          <tr><th>רכיב</th><th>תפקיד</th><th>דוגמאות</th></tr>
+          <tr><td><strong>API Gateway</strong></td><td>ניתוב, auth, rate limiting</td><td>Kong, AWS API GW, Nginx</td></tr>
+          <tr><td><strong>Service Discovery</strong></td><td>שירותים מוצאים אחד את השני</td><td>Consul, Eureka, k8s DNS</td></tr>
+          <tr><td><strong>Load Balancer</strong></td><td>חלוקת עומסים</td><td>AWS ALB, HAProxy, Nginx</td></tr>
+          <tr><td><strong>Message Broker</strong></td><td>תקשורת async</td><td>Kafka, RabbitMQ, SQS</td></tr>
+          <tr><td><strong>Config Server</strong></td><td>הגדרות מרכזיות</td><td>Spring Cloud Config, Consul</td></tr>
+          <tr><td><strong>Distributed Tracing</strong></td><td>עקיבת requests</td><td>Jaeger, Zipkin, AWS X-Ray</td></tr>
+        </table>
+        <div class="card-section-title">🛡️ Resilience Patterns</div>
+        <table class="decision-table">
+          <tr><th>Pattern</th><th>מטרה</th><th>כלי</th></tr>
+          <tr><td><strong>Circuit Breaker</strong></td><td>עצור calls לשירות כושל, avoid cascade failure</td><td>Resilience4j, Hystrix</td></tr>
+          <tr><td><strong>Retry + Backoff</strong></td><td>נסה שוב עם delay הולך וגדל</td><td>Resilience4j, AWS SDK</td></tr>
+          <tr><td><strong>Bulkhead</strong></td><td>בידוד resource pools לשירותים שונים</td><td>Thread pool isolation</td></tr>
+          <tr><td><strong>Timeout</strong></td><td>אל תחכה לנצח לשירות איטי</td><td>OkHttp, RestTemplate</td></tr>
+          <tr><td><strong>Saga Pattern</strong></td><td>distributed transactions ללא 2PC</td><td>Choreography/Orchestration</td></tr>
+        </table>
+        <div class="tip-box">בראיון: "Why microservices?" → scalability + independent deployment + fault isolation + team autonomy. "Downsides?" → network latency, distributed transactions complexity, operational overhead (monitoring, k8s).</div>
+      </div>
+    </div>
+
+    <!-- DOCKER -->
+    <div class="card" id="concepts-docker">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-header-left"><span class="card-icon">🐳</span>
+          <div><div class="card-title">Docker & Containers</div>
+          <div class="card-subtitle">Images, Containers, Dockerfile, Docker Compose, Kubernetes basics</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="card-badge badge-concept">DevOps</span><span class="card-toggle">▼</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="desc-box blue">Docker = כלי לאריזת applications ב-containers. Container = isolated environment עם כל dependencies. "Build once, run anywhere." חשוב לכל SWE מודרני.</div>
+        <div class="card-section-title">🏗️ מושגים בסיסיים</div>
+        <table class="decision-table">
+          <tr><th>מושג</th><th>הסבר</th><th>אנלוגיה</th></tr>
+          <tr><td><strong>Image</strong></td><td>תמונה read-only עם app + dependencies</td><td>Recipe / Blueprint</td></tr>
+          <tr><td><strong>Container</strong></td><td>instance רץ של image</td><td>Running process from recipe</td></tr>
+          <tr><td><strong>Dockerfile</strong></td><td>הוראות לבניית image</td><td>Shopping list for the recipe</td></tr>
+          <tr><td><strong>Registry</strong></td><td>מאגר של images (DockerHub, ECR)</td><td>App Store for images</td></tr>
+          <tr><td><strong>Volume</strong></td><td>persistent storage בין container restarts</td><td>External hard drive</td></tr>
+          <tr><td><strong>Network</strong></td><td>תקשורת בין containers</td><td>Private LAN</td></tr>
+        </table>
+        <div class="card-section-title">📋 Dockerfile לJava App</div>
+        <div class="code-wrapper"><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+<pre><code class="language-java">// Dockerfile (not Java — just showing the structure)
+/*
+# Multi-stage build — smaller final image
+FROM maven:3.9-eclipse-temurin-17 AS build
+WORKDIR /app
+COPY pom.xml .
+RUN mvn dependency:go-offline   # cache deps
+COPY src ./src
+RUN mvn package -DskipTests
+
+# Final image — only JRE needed
+FROM eclipse-temurin:17-jre-alpine
+WORKDIR /app
+COPY --from=build /app/target/app.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
+*/
+
+// docker-compose.yml (multi-service)
+/*
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/mydb
+    depends_on:
+      - db
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
+*/</code></pre></div>
+        <div class="card-section-title">🔧 פקודות Docker חשובות</div>
+        <table class="decision-table">
+          <tr><th>פקודה</th><th>מה עושה</th></tr>
+          <tr><td><code class="inline">docker build -t myapp:1.0 .</code></td><td>בנה image מ-Dockerfile</td></tr>
+          <tr><td><code class="inline">docker run -p 8080:8080 myapp</code></td><td>הרץ container, map port</td></tr>
+          <tr><td><code class="inline">docker ps</code></td><td>containers רצים</td></tr>
+          <tr><td><code class="inline">docker logs &lt;id&gt;</code></td><td>לוגים של container</td></tr>
+          <tr><td><code class="inline">docker exec -it &lt;id&gt; bash</code></td><td>shell לתוך container</td></tr>
+          <tr><td><code class="inline">docker compose up -d</code></td><td>הרץ כל services ב-compose</td></tr>
+          <tr><td><code class="inline">docker compose down</code></td><td>עצור והסר containers</td></tr>
+        </table>
+        <div class="card-section-title">☸️ Kubernetes — מבוא</div>
+        <table class="decision-table">
+          <tr><th>מושג k8s</th><th>הסבר</th></tr>
+          <tr><td><strong>Pod</strong></td><td>יחידת deployment הכי קטנה — 1+ containers</td></tr>
+          <tr><td><strong>Deployment</strong></td><td>מנהל replicas של pods, rolling updates</td></tr>
+          <tr><td><strong>Service</strong></td><td>virtual IP קבוע לקבוצת pods (load balancing)</td></tr>
+          <tr><td><strong>Ingress</strong></td><td>HTTP routing חיצוני ל-services</td></tr>
+          <tr><td><strong>ConfigMap/Secret</strong></td><td>הגדרות ו-credentials נפרדים מה-image</td></tr>
+          <tr><td><strong>HPA</strong></td><td>Horizontal Pod Autoscaler — scale לפי CPU/memory</td></tr>
+        </table>
+        <div class="tip-box">בראיון: Container vs VM? Container חולק OS kernel, VM לא. Containers קלים יותר ומהירים לstart. Docker vs Kubernetes? Docker = כלי containers, k8s = orchestrator שמנהל clusters של containers.</div>
+      </div>
+    </div>
+
+    <!-- SYSTEM DESIGN -->
+    <div class="card" id="concepts-sysdesign">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-header-left"><span class="card-icon">🏗️</span>
+          <div><div class="card-title">System Design — מדריך לראיון</div>
+          <div class="card-subtitle">גישה, building blocks, patterns ומערכות קלאסיות</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="card-badge badge-concept">System Design</span><span class="card-toggle">▼</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="desc-box blue">System Design ראיון = 45-60 דקות לעצב מערכת בקנה מידה גדול. חשוב להראות תהליך מסודר, לא רק תשובה סופית. המראיין רוצה לראות כיצד אתה חושב.</div>
+        <div class="card-section-title">📋 6 שלבים לראיון System Design</div>
+        <table class="decision-table">
+          <tr><th>שלב</th><th>מה לעשות</th><th>זמן</th></tr>
+          <tr><td><strong>1. Requirements</strong></td><td>Functional + Non-functional. DAU? QPS? Latency SLA?</td><td>5 דק'</td></tr>
+          <tr><td><strong>2. Capacity Estimation</strong></td><td>חשב storage, bandwidth, QPS. הראה חישוב גס.</td><td>5 דק'</td></tr>
+          <tr><td><strong>3. High-Level Design</strong></td><td>ציור ארכיטקטורה: Clients → API GW → Services → DB</td><td>10 דק'</td></tr>
+          <tr><td><strong>4. Deep Dive</strong></td><td>צלול לרכיב הכי מאתגר. DB schema, caching strategy</td><td>15 דק'</td></tr>
+          <tr><td><strong>5. Scale &amp; Bottlenecks</strong></td><td>איפה ה-bottleneck? איך תגדיל? שאל את המראיין</td><td>10 דק'</td></tr>
+          <tr><td><strong>6. Trade-offs</strong></td><td>הסבר מה ויתרת ולמה. SQL vs NoSQL, Push vs Pull</td><td>5 דק'</td></tr>
+        </table>
+        <div class="card-section-title">🧱 Building Blocks</div>
+        <table class="decision-table">
+          <tr><th>רכיב</th><th>מתי</th><th>דוגמאות</th></tr>
+          <tr><td><strong>Load Balancer</strong></td><td>חלוקת תעבורה, HA</td><td>AWS ALB, Nginx, HAProxy</td></tr>
+          <tr><td><strong>Cache</strong></td><td>קריאות חוזרות, latency &lt;1ms</td><td>Redis, Memcached</td></tr>
+          <tr><td><strong>CDN</strong></td><td>static assets, global latency</td><td>CloudFront, Fastly</td></tr>
+          <tr><td><strong>Message Queue</strong></td><td>async processing, decoupling</td><td>Kafka, SQS, RabbitMQ</td></tr>
+          <tr><td><strong>SQL DB</strong></td><td>ACID, relations, transactions</td><td>PostgreSQL, MySQL</td></tr>
+          <tr><td><strong>NoSQL DB</strong></td><td>scale, flexible schema, speed</td><td>DynamoDB, MongoDB, Cassandra</td></tr>
+          <tr><td><strong>Object Storage</strong></td><td>files, images, video</td><td>S3, GCS</td></tr>
+          <tr><td><strong>Search</strong></td><td>full-text search</td><td>Elasticsearch, OpenSearch</td></tr>
+        </table>
+        <div class="card-section-title">⚖️ הכרעות קריטיות</div>
+        <table class="decision-table">
+          <tr><th>שאלה</th><th>SQL</th><th>NoSQL</th></tr>
+          <tr><td>ACID transactions</td><td>✅</td><td>❌ (mostly)</td></tr>
+          <tr><td>Flexible schema</td><td>❌</td><td>✅</td></tr>
+          <tr><td>Horizontal scale</td><td>קשה</td><td>✅</td></tr>
+          <tr><td>Complex joins</td><td>✅</td><td>❌</td></tr>
+          <tr><td>High write throughput</td><td>קשה</td><td>✅ (Cassandra)</td></tr>
+        </table>
+        <div class="card-section-title">📐 מערכות קלאסיות — תמצית</div>
+        <table class="decision-table">
+          <tr><th>מערכת</th><th>רכיבי מפתח</th></tr>
+          <tr><td><strong>URL Shortener</strong></td><td>Hash (base62 7 chars) → Redis cache → DynamoDB. Redirect = 301/302</td></tr>
+          <tr><td><strong>Chat App</strong></td><td>WebSocket / long-polling. Redis pub/sub לonline users. messages DB</td></tr>
+          <tr><td><strong>News Feed</strong></td><td>Fanout on write (push) vs fanout on read (pull). Cache feeds ב-Redis</td></tr>
+          <tr><td><strong>Rate Limiter</strong></td><td>Token Bucket / Leaky Bucket. Redis INCR + TTL לcounters</td></tr>
+          <tr><td><strong>Search Autocomplete</strong></td><td>Trie structure. Top-K קש-א-top suggestions. Cache hot prefixes</td></tr>
+        </table>
+        <div class="tip-box">CAP Theorem: לא ניתן להבטיח גם Consistency, גם Availability, גם Partition Tolerance. SQL = CP, DynamoDB = AP. תמיד שאל: "What are the consistency requirements?"</div>
+      </div>
+    </div>
+
+    </div><!-- end cards-grid -->
+  </section><!-- end sec-concepts -->
 
 
   <section class="content-section sec-ds" id="sec-ds">
@@ -5496,375 +6196,6 @@ Integer.reverse(n)                // reverse all bits</code></pre></div>
       </div>
     </div>
 
-
-    <!-- OOP BASICS -->
-    <div class="card" id="ops-oop">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="card-header-left"><span class="card-icon">🏗️</span>
-          <div><div class="card-title">OOP Basics — רלוונטי לראיונות</div>
-          <div class="card-subtitle">Inheritance, Polymorphism, Interface vs Abstract, Design Patterns</div></div>
-        </div>
-        <div style="display:flex;gap:8px;align-items:center">
-          <span class="card-badge badge-ops">Java</span><span class="card-toggle">▼</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="desc-box blue">עקרונות OOP שחוזרים בראיונות: ההבדל בין interface לabstract class, polymorphism, ו-design patterns בסיסיים. ממוקד לSWE interviews בלבד.</div>
-        <div class="card-section-title">🔑 4 עקרונות OOP</div>
-        <table class="decision-table">
-          <tr><th>עיקרון</th><th>הסבר</th><th>Java keyword</th></tr>
-          <tr><td><strong>Encapsulation</strong></td><td>הסתרת מידע, חשיפה דרך public methods</td><td><code class="inline">private</code>, getters/setters</td></tr>
-          <tr><td><strong>Inheritance</strong></td><td>קלאס ילד מקבל properties של קלאס אב</td><td><code class="inline">extends</code></td></tr>
-          <tr><td><strong>Polymorphism</strong></td><td>אותה פונקציה, התנהגות שונה לפי סוג האובייקט</td><td><code class="inline">@Override</code>, <code class="inline">instanceof</code></td></tr>
-          <tr><td><strong>Abstraction</strong></td><td>הסתרת implementation, חשיפת contract בלבד</td><td><code class="inline">abstract</code>, <code class="inline">interface</code></td></tr>
-        </table>
-        <div class="card-section-title">❓ Interface vs Abstract Class — שאלת ראיון קלאסית</div>
-        <table class="decision-table">
-          <tr><th></th><th>Interface</th><th>Abstract Class</th></tr>
-          <tr><td><strong>ירושה</strong></td><td><code class="inline">implements</code> (multiple!)</td><td><code class="inline">extends</code> (רק אחד)</td></tr>
-          <tr><td><strong>Fields</strong></td><td>רק <code class="inline">static final</code></td><td>כל סוג fields</td></tr>
-          <tr><td><strong>Constructor</strong></td><td>אין</td><td>יש (לא instantiable)</td></tr>
-          <tr><td><strong>Methods</strong></td><td>abstract + default + static</td><td>abstract + concrete</td></tr>
-          <tr><td><strong>מתי?</strong></td><td>הגדרת contract, multiple types</td><td>shared base behavior + specialization</td></tr>
-        </table>
-        <div class="card-section-title">☕ Java Code Examples</div>
-        <div class="code-wrapper"><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
-<pre><code class="language-java">// ===== INTERFACE =====
-interface Shape {
-    double area();                                           // implicitly abstract
-    default String describe() { return "I am a shape"; }   // default method (Java 8+)
-    static Shape ofCircle(double r) { return new Circle(r); } // static factory
-}
-
-// ===== ABSTRACT CLASS =====
-abstract class Animal {
-    String name;
-    Animal(String name) { this.name = name; }  // constructor allowed
-    abstract void sound();                      // subclass MUST override
-    void breathe() { System.out.println("breathing"); } // concrete - inherited as-is
-}
-
-// ===== INHERITANCE =====
-class Dog extends Animal {
-    Dog(String name) { super(name); }
-    @Override
-    void sound() { System.out.println(name + ": Woof!"); }
-}
-
-// ===== POLYMORPHISM =====
-Animal a = new Dog("Rex");  // reference = Animal, actual = Dog
-a.sound();                  // calls Dog.sound() — runtime dispatch!
-
-if (a instanceof Dog d) {   // Java 16+ pattern matching (no separate cast needed)
-    d.sound();
-}
-
-// ===== MULTIPLE INTERFACES =====
-class Circle implements Shape, Comparable&lt;Circle&gt; {
-    double radius;
-    Circle(double r) { this.radius = r; }
-    @Override public double area() { return Math.PI * radius * radius; }
-    @Override public int compareTo(Circle o) { return Double.compare(this.radius, o.radius); }
-}
-
-// ===== DESIGN PATTERNS (LeetCode relevant) =====
-
-// Singleton — one instance ever
-class Singleton {
-    private static volatile Singleton instance;
-    private Singleton() {}
-    public static Singleton getInstance() {
-        if (instance == null) synchronized(Singleton.class) {
-            if (instance == null) instance = new Singleton(); // double-checked locking
-        }
-        return instance;
-    }
-}
-
-// Factory — create objects by type
-interface Logger { void log(String msg); }
-class ConsoleLogger implements Logger { public void log(String m) { System.out.println(m); }}
-class Logger Factory {
-    static Logger create(String type) {
-        return switch(type) { case "console" -> new ConsoleLogger(); default -> throw new IllegalArgumentException(); };
-    }
-}
-
-// Observer — notify listeners
-interface Observer { void update(int val); }
-class EventSource {
-    List&lt;Observer&gt; listeners = new ArrayList&lt;&gt;();
-    void subscribe(Observer o) { listeners.add(o); }
-    void emit(int val) { listeners.forEach(o -> o.update(val)); }
-}
-
-// Strategy — swap algorithms at runtime
-interface SortStrategy { void sort(int[] arr); }
-class BubbleSort implements SortStrategy { public void sort(int[] a) { /* ... */ }}
-class Sorter {
-    SortStrategy strategy;
-    Sorter(SortStrategy s) { this.strategy = s; }
-    void sort(int[] a) { strategy.sort(a); }
-}</code></pre></div>
-        <div class="tip-box">בראיון: interface = "מה" (contract), abstract class = "איך חלקית" (partial impl). Multiple interfaces → composition over inheritance. ב-LeetCode design questions תמיד עדיף interfaces.</div>
-      </div>
-    </div>
-
-    <!-- STREAMS API -->
-    <div class="card" id="ops-streams">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="card-header-left"><span class="card-icon">🌊</span>
-          <div><div class="card-title">Streams API — Java 8+</div>
-          <div class="card-subtitle">filter, map, collect, reduce, groupingBy, flatMap</div></div>
-        </div>
-        <div style="display:flex;gap:8px;align-items:center">
-          <span class="card-badge badge-ops">Java</span><span class="card-toggle">▼</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="desc-box blue">Streams API מאפשר עיבוד נתונים פונקציונלי — פילטור, מיפוי, צבירה. ב-LeetCode לא תמיד הכי יעיל, אבל מראה בקיאות ב-Java מודרנית. Lazy evaluation — intermediate ops לא רצות עד terminal op.</div>
-        <div class="code-wrapper"><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
-<pre><code class="language-java">import java.util.*;
-import java.util.stream.*;
-
-List&lt;Integer&gt; nums = Arrays.asList(3, 1, 4, 1, 5, 9, 2, 6, 5);
-
-// ===== BASIC PIPELINE: source → intermediate ops → terminal op =====
-List&lt;Integer&gt; evens = nums.stream()
-    .filter(n -&gt; n % 2 == 0)
-    .collect(Collectors.toList());                          // [4, 2, 6]
-
-List&lt;String&gt; strs = nums.stream()
-    .map(n -&gt; "num:" + n)
-    .collect(Collectors.toList());
-
-List&lt;Integer&gt; top3Distinct = nums.stream()
-    .distinct()
-    .sorted(Comparator.reverseOrder())
-    .limit(3)
-    .collect(Collectors.toList());                          // [9, 6, 5]
-
-// ===== REDUCE =====
-int sum      = nums.stream().reduce(0, Integer::sum);
-int product  = nums.stream().reduce(1, (a, b) -&gt; a * b);
-Optional&lt;Integer&gt; max = nums.stream().reduce(Integer::max); // Optional — might be empty!
-int maxVal   = nums.stream().mapToInt(x -&gt; x).max().getAsInt();
-
-// ===== COLLECTORS =====
-Set&lt;Integer&gt; unique = nums.stream().collect(Collectors.toSet());
-
-// joining (for Strings)
-String joined = Stream.of("a","b","c")
-    .collect(Collectors.joining(", ", "[", "]"));           // [a, b, c]
-
-// groupingBy — frequency map
-Map&lt;Integer, Long&gt; freq = nums.stream()
-    .collect(Collectors.groupingBy(n -&gt; n, Collectors.counting()));
-
-// groupingBy — partition by condition
-Map&lt;Integer, List&lt;Integer&gt;&gt; byMod3 = nums.stream()
-    .collect(Collectors.groupingBy(n -&gt; n % 3));
-
-// toMap
-Map&lt;Integer, Integer&gt; squareMap = nums.stream().distinct()
-    .collect(Collectors.toMap(n -&gt; n, n -&gt; n * n));
-
-// ===== MATCH / FIND =====
-boolean anyEven  = nums.stream().anyMatch(n -&gt; n % 2 == 0);
-boolean allPos   = nums.stream().allMatch(n -&gt; n &gt; 0);
-boolean noneNeg  = nums.stream().noneMatch(n -&gt; n &lt; 0);
-Optional&lt;Integer&gt; first = nums.stream().filter(n -&gt; n &gt; 5).findFirst();
-long count = nums.stream().filter(n -&gt; n &gt; 3).count();
-
-// ===== IntStream (primitives — more efficient) =====
-int[] arr = {1, 2, 3, 4, 5};
-int arrSum  = IntStream.of(arr).sum();
-int arrMax  = IntStream.of(arr).max().getAsInt();
-double avg  = IntStream.of(arr).average().getAsDouble();
-
-IntStream.range(0, 5).forEach(i -&gt; { /* 0,1,2,3,4 */ });
-IntStream.rangeClosed(1, 5).sum();  // 15
-
-// ===== TYPE CONVERSIONS =====
-// List&lt;Integer&gt; → int[]
-int[] prim = nums.stream().mapToInt(Integer::intValue).toArray();
-// int[] → List&lt;Integer&gt;
-List&lt;Integer&gt; boxed = IntStream.of(arr).boxed().collect(Collectors.toList());
-// String → char stream
-"hello".chars().mapToObj(c -&gt; (char)c).forEach(c -&gt; { /* each char */ });
-
-// ===== FLATMAP — flatten nested =====
-List&lt;List&lt;Integer&gt;&gt; nested = Arrays.asList(Arrays.asList(1,2), Arrays.asList(3,4));
-List&lt;Integer&gt; flat = nested.stream()
-    .flatMap(Collection::stream)
-    .collect(Collectors.toList());  // [1, 2, 3, 4]
-
-int[][] matrix = {{1,2},{3,4},{5,6}};
-List&lt;Integer&gt; flatMat = Arrays.stream(matrix)
-    .flatMapToInt(Arrays::stream)
-    .boxed()
-    .collect(Collectors.toList());  // [1,2,3,4,5,6]
-
-// ===== COMMON LC PATTERNS =====
-// Top-K by frequency:
-List&lt;Integer&gt; topK = freq.entrySet().stream()
-    .sorted(Map.Entry.&lt;Integer,Long&gt;comparingByValue().reversed())
-    .limit(2)
-    .map(Map.Entry::getKey)
-    .collect(Collectors.toList());
-
-// Char frequency map from String:
-Map&lt;Character, Long&gt; charFreq = "aabbcc".chars()
-    .mapToObj(c -&gt; (char)c)
-    .collect(Collectors.groupingBy(c -&gt; c, Collectors.counting()));</code></pre></div>
-        <div class="warning-box">Stream לא ניתן לreuse לאחר terminal operation — תיזרק exception. בLeetCode, loop רגיל מהיר יותר; Streams לקוד קצר ובהיר. <code class="inline">Optional.get()</code> בלי בדיקה → NoSuchElementException.</div>
-      </div>
-    </div>
-
-    <!-- MULTITHREADING -->
-    <div class="card" id="ops-threads">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="card-header-left"><span class="card-icon">🔀</span>
-          <div><div class="card-title">Multithreading & Concurrency — Interview Scope</div>
-          <div class="card-subtitle">synchronized, volatile, AtomicInteger, ExecutorService, ConcurrentHashMap</div></div>
-        </div>
-        <div style="display:flex;gap:8px;align-items:center">
-          <span class="card-badge badge-ops">Java</span><span class="card-toggle">▼</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="desc-box blue">Concurrency מופיע ב-LeetCode כdesign questions (LRU Cache thread-safe, rate limiter, etc.). תדע: synchronized, volatile, Atomic classes, ExecutorService, ו-ConcurrentHashMap.</div>
-        <div class="code-wrapper"><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
-<pre><code class="language-java">import java.util.concurrent.*;
-import java.util.concurrent.atomic.*;
-import java.util.concurrent.locks.*;
-
-// ===== CREATING THREADS =====
-// Option 1: Runnable lambda (preferred for simple tasks)
-Thread t = new Thread(() -&gt; System.out.println("hello from thread"));
-t.start();
-t.join(); // main thread waits for t to finish (throws InterruptedException)
-
-// Option 2: extend Thread (rarely needed)
-class MyTask extends Thread {
-    public void run() { System.out.println(getName()); }
-}
-
-// ===== SYNCHRONIZED =====
-class Counter {
-    private int count = 0;
-
-    public synchronized void increment() { count++; } // method-level lock (on 'this')
-
-    public void decrement() {
-        synchronized(this) { count--; }  // block-level lock (finer granularity)
-    }
-
-    public synchronized int get() { return count; }
-}
-// NOTE: count++ is NOT atomic! It's read-modify-write (3 ops). Always sync or use Atomic.
-
-// ===== VOLATILE =====
-// Guarantees VISIBILITY (all threads see latest value) but NOT atomicity
-class StopFlag {
-    private volatile boolean running = true;  // without volatile, threads may cache old value
-    public void stop() { running = false; }
-    public void run() { while (running) { /* work */ } }
-}
-// volatile int counter; counter++; // STILL NOT THREAD-SAFE! Use AtomicInteger.
-
-// ===== ATOMIC CLASSES (lock-free, CAS-based) =====
-AtomicInteger ai = new AtomicInteger(0);
-int newVal = ai.incrementAndGet();       // ++ai, returns new value
-int oldVal = ai.getAndAdd(5);            // ai += 5, returns old value
-boolean swapped = ai.compareAndSet(5, 10); // if val==5, set 10; returns true/false (CAS)
-
-AtomicLong   al = new AtomicLong(0L);
-AtomicBoolean ab = new AtomicBoolean(false);
-
-// ===== EXECUTOR SERVICE =====
-ExecutorService pool = Executors.newFixedThreadPool(4); // 4 worker threads
-
-// Runnable: fire and forget
-pool.submit(() -&gt; System.out.println("task"));
-
-// Callable: returns a result
-Future&lt;Integer&gt; future = pool.submit(() -&gt; {
-    Thread.sleep(100);
-    return 42;
-});
-int result = future.get();         // blocks until done; throws checked exceptions
-future.get(1, TimeUnit.SECONDS);   // timeout variant
-
-pool.shutdown();                   // graceful: finish queued tasks, no new
-pool.shutdownNow();                // forceful: interrupt running tasks
-pool.awaitTermination(5, TimeUnit.SECONDS); // wait for full shutdown
-
-// ===== CONCURRENT COLLECTIONS =====
-ConcurrentHashMap&lt;String, Integer&gt; cmap = new ConcurrentHashMap&lt;&gt;();
-cmap.put("a", 1);
-cmap.getOrDefault("b", 0);
-cmap.computeIfAbsent("c", k -&gt; 0);
-cmap.merge("a", 1, Integer::sum); // thread-safe frequency count!
-
-CopyOnWriteArrayList&lt;Integer&gt; cowList = new CopyOnWriteArrayList&lt;&gt;(); // safe reads, slow writes
-BlockingQueue&lt;Integer&gt; bq = new LinkedBlockingQueue&lt;&gt;(100); // bounded producer-consumer
-bq.put(1);     // blocks if full
-bq.take();     // blocks if empty
-bq.offer(1, 1, TimeUnit.SECONDS); // offer with timeout
-
-// ===== REENTRANT LOCK (more flexible than synchronized) =====
-Lock lock = new ReentrantLock();
-lock.lock();
-try {
-    // critical section
-} finally {
-    lock.unlock(); // ALWAYS in finally! Or you'll deadlock on exception.
-}
-lock.tryLock();                    // returns false immediately if locked
-lock.tryLock(500, TimeUnit.MILLISECONDS); // wait up to 500ms
-
-// ===== SEMAPHORE (limit concurrent access) =====
-Semaphore sem = new Semaphore(3); // 3 permits — at most 3 threads at a time
-sem.acquire();
-try { /* max 3 threads here */ } finally { sem.release(); }
-
-// ===== COUNTDOWNLATCH (wait for N events) =====
-CountDownLatch latch = new CountDownLatch(3);
-// In 3 threads: latch.countDown();
-latch.await(); // main waits until count reaches 0
-
-// ===== THREAD-SAFE SINGLETON =====
-class SafeSingleton {
-    private static volatile SafeSingleton instance;
-    private SafeSingleton() {}
-    public static SafeSingleton getInstance() {
-        if (instance == null) {                // first check: no lock
-            synchronized(SafeSingleton.class) {
-                if (instance == null) {        // second check: with lock
-                    instance = new SafeSingleton();
-                }
-            }
-        }
-        return instance;
-    }
-}</code></pre></div>
-        <div class="card-section-title">⚡ מתי להשתמש במה</div>
-        <table class="decision-table">
-          <tr><th>בעיה</th><th>פתרון</th></tr>
-          <tr><td>Shared state — מתודה שלמה</td><td><code class="inline">synchronized</code> method</td></tr>
-          <tr><td>Counter thread-safe</td><td><code class="inline">AtomicInteger</code></td></tr>
-          <tr><td>Visibility בין threads</td><td><code class="inline">volatile</code></td></tr>
-          <tr><td>Pool of threads</td><td><code class="inline">ExecutorService</code></td></tr>
-          <tr><td>Thread-safe Map</td><td><code class="inline">ConcurrentHashMap</code></td></tr>
-          <tr><td>Producer-Consumer</td><td><code class="inline">BlockingQueue</code></td></tr>
-          <tr><td>Limit concurrent access to N</td><td><code class="inline">Semaphore</code></td></tr>
-          <tr><td>Wait for N threads to finish</td><td><code class="inline">CountDownLatch</code></td></tr>
-          <tr><td>tryLock / timeout locking</td><td><code class="inline">ReentrantLock</code></td></tr>
-        </table>
-        <div class="warning-box"><strong>synchronized vs volatile:</strong> <code class="inline">volatile</code> מבטיח visibility בלבד — לא atomicity. <code class="inline">count++</code> הם 3 פעולות (read-modify-write). אז <code class="inline">volatile int count; count++</code> = NOT thread-safe. השתמש ב-<code class="inline">AtomicInteger</code> או <code class="inline">synchronized</code>.</div>
-      </div>
-    </div>
 
     </div><!-- end cards-grid -->
   </section><!-- end sec-ops -->
